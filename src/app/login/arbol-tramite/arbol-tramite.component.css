@@ -1,0 +1,59 @@
+.mat-form-field {
+    display: block;
+}
+
+.custom-modalbox>mat-dialog-container {
+    padding: 0px;
+}
+
+.md-dialog-container {
+    width: 250px;
+}
+
+.my-class .mat-dialog-container {
+    height: 400px;
+    width: 800px;
+    border-radius: 10px;
+    background: lightcyan;
+    color: #039be5;
+}
+
+#cy {
+    height: 400px;
+    width: 100%;
+    background-image: '/assets/img/documento.png';
+    color: red !important;
+    border-color: 'red';
+    border-width: 9
+}
+
+body {
+    font: 14px helvetica neue, helvetica, arial, sans-serif;
+}
+
+#eat {
+    position: absolute;
+    left: 1em;
+    top: 1em;
+    font-size: 1em;
+    z-index: -1;
+    color: #c88;
+}
+
+.mat-dialog-actions {
+    justify-content: flex-end !important;
+}
+
+.bgimg {
+    width: 280px;
+    height: 203px;
+    background-image: '/assets/img/iconomano.gif';
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 20px;
+    position: relative;
+}
+
+.cy.mouseover {
+    cursor: pointer;
+}

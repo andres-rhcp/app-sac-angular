@@ -1,0 +1,10 @@
+.md-button-right .button-group {
+    position: absolute;
+    right: 0px;
+    margin: 0;
+  }
+
+  .fill-space {
+    flex: 1 1 auto;
+  }
+  

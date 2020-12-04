@@ -1,0 +1,64 @@
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .text-red {
+    color: red;
+  }
+  .text-green {
+    color: green;
+  }
+
+  .text-orange {
+    color: #5DBCD2;
+  }
+
+  .text-red-bold {
+    color: red;
+    font-weight: bold;
+  }
+  .text-green-bold {
+    color: green;
+    font-weight: bold;
+  }
+
+  .mat-chip {
+    max-width: 30px;
+    font-size: 30px;
+    align-content: center;
+  }
+
+  .green { 
+      background-color: #B9FFB1;
+      font-weight: bold;
+    }
+  .yellow { 
+      background-color: #FBFF70;
+      font-weight: bold;
+    }
+    .red {
+        background-color: #F2A58F;
+        font-weight: bold;
+    }
+    .mat-header-cell {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    table {
+        text-align: left !important;      
+        width: 100%;
+        padding-left: 8px;
+      }
+
+      .centrado{
+        text-align: left !important;
+        padding-left: 20px;
+      }
+  
+ 

@@ -1,0 +1,26 @@
+<h3 mat-dialog-title>Recorrido de trámite Nro. {{data.codigo_tramite}}</h3>
+<div style="margin-top: -20px;">{{data.asunto}}</div>
+
+<div mat-dialog-content class="mat-typography">
+    <div id="cy"></div>
+</div>
+
+<div mat-dialog-actions class="mat-typography" style="text-align: right; ">
+    <div style=" left: 20px; top: 0; text-align: left;">
+        <img width="80px" src="assets/img/iconomano.gif" (onload)='blink()' id="mouse" style=" top: 30px; left: 100px; margin-left: 20px; margin-top: -50px;" />
+    </div>
+    <button mat-raised-button (click)="onNoClick()" color="accent"><mat-icon>check</mat-icon>ACEPTAR</button>
+</div>
+<script>
+    function blink() {
+        // Toggle the position.
+        if (isVisible == "visible") isVisible = "hidden";
+        else isVisible = "visible";
+
+        // Update it.
+        document.getElementById("mouse").style.visibility = isVisible;
+
+        // Repeat the process every 2 seconds.
+        setTimeout(blink, 2000);
+    }
+</script>

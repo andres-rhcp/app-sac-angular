@@ -1,0 +1,124 @@
+<mat-toolbar color="link">      
+        <span>Nuevo cuadre de ventas</span>
+    <mat-toolbar-row>
+      
+      <mat-form-field>
+            <input matInput [matDatepicker]="picker1" placeholder="Seleccione fecha">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+          
+      <span class="spacer"></span>      
+      <button mat-stroked-button color="primary" (click)="openDialogOficinas()">
+            <mat-icon aria-hidden="false">home_work</mat-icon>
+            Agregar oficinas
+      </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+        <!-- Checkbox Column -->
+        <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggle() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()"
+                        [aria-label]="checkboxLabel()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selection.toggle(row) : null"
+                        [checked]="selection.isSelected(row)"
+                        [aria-label]="checkboxLabel(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+      
+      <!-- Position Column -->
+      <ng-container matColumnDef="Oficina">
+        <th mat-header-cell *matHeaderCellDef> OFICINA </th>
+                <td mat-cell *matCellDef="let element" > {{element.OFICINA}} </td>        
+      </ng-container> 
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Nombre">
+        <th mat-header-cell *matHeaderCellDef> NOMBRE </th>
+        <td mat-cell *matCellDef="let element"> {{element.NOMBRE}} </td>
+      </ng-container> 
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="ofi_codigo_auxiliar">
+        <th mat-header-cell *matHeaderCellDef> CÓDIGO AUXILAIR </th>
+        <td mat-cell *matCellDef="let element"> {{element.AUXILIAR}} </td>
+      </ng-container>
+      <div class="mat-header-row header-group-row">
+       <!-- Name Column -->
+      <ng-container matColumnDef="cantidadServidor">
+          <th mat-header-cell *matHeaderCellDef> CANTIDAD S.</th>
+          <td mat-cell *matCellDef="let element" class="green"> {{element.cantidad}} </td>
+        </ng-container>            
+          <!-- Name Column -->
+    <ng-container matColumnDef="cantidadFarmacia">
+            <th mat-header-cell *matHeaderCellDef> CANTIDAD F. </th>
+            <td mat-cell *matCellDef="let element" class="green"> {{element.cantidadFarmacia}} </td>
+    </ng-container>     
+    <ng-container matColumnDef="diferenciaCantidad">
+                <th mat-header-cell *matHeaderCellDef> DIF. </th>
+                <td mat-cell *matCellDef="let element" class="green"> {{(element.cantidad - element.cantidadFarmacia)| number}}</td>
+    </ng-container>   
+      <!-- Name Column -->
+      <div class="mat-header-cell header-group" role="columnheader" style="flex: 2">Group1</div>
+      <ng-container matColumnDef="totalServidor">
+        <th mat-header-cell *matHeaderCellDef> TOTAL S.</th>
+        <td mat-cell *matCellDef="let element" class="yellow"> {{element.total | number}} </td>
+      </ng-container>     
+      </div> 
+    <!-- Name Column -->
+    <ng-container matColumnDef="totalFarmacia">
+      <th mat-header-cell *matHeaderCellDef> TOTAL F.</th>
+      <td mat-cell *matCellDef="let element" class="yellow"> {{element.totalFarmacia | number}} </td>
+    </ng-container>     
+    <ng-container matColumnDef="diferenciaTotal">
+            <th mat-header-cell *matHeaderCellDef> DIF. </th>
+            <td mat-cell *matCellDef="let element" class="yellow"> {{(element.total - element.totalFarmacia) | number}} </td>
+</ng-container>   
+          <!-- Action Column -->
+  <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> DETALLE </th>
+          <td mat-cell *matCellDef="let element" class="action-link centrado"> 
+          <button mat-icon-button (click)="openDialogVentasDetalles(element)">
+              <mat-icon>list</mat-icon>
+          </button>            
+          </td>
+  </ng-container>       
+            <!-- Action Column -->
+  <ng-container matColumnDef="pago">
+              <th mat-header-cell *matHeaderCellDef> FORMAS P. </th>
+              <td mat-cell *matCellDef="let element" class="action-link centrado"> 
+              <button mat-icon-button (click)="openDialogFormasPago(element)">
+                  <mat-icon>payment</mat-icon>
+              </button>            
+              </td>
+  </ng-container>      
+          <!-- Name Column -->
+          <ng-container matColumnDef="estado" class="mat-chip">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let element" style="width: 50px; text-align: left; font-size: 6px;text-align: center;" >
+                    <span *ngIf="element.estado==='hourglass_empty'" >
+                      <mat-chip matTooltip="Loading.." class="mat-chip" color="primary" selected><mat-spinner diameter="20"></mat-spinner></mat-chip></span>
+                    <span *ngIf="(element.estado==='done' )" >
+                        <mat-chip matTooltip="OK" class="mat-chip" color="primary" selected><mat-icon >{{element.estado ? element.estado : ''}}</mat-icon></mat-chip></span>                    
+                    <span *ngIf="element.estado!=='done' && element.estado!=='hourglass_empty'" >
+                        <mat-chip matTooltip="Error de conexión con farmacia." class="mat-chip" color="warn" selected><mat-icon >clear</mat-icon> </mat-chip></span>
+                </td>
+              </ng-container>   
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+    </table>  
+    <mat-paginator [length]="100"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    (page)="pageEvent = $event">
+</mat-paginator>
+  </div>
+
