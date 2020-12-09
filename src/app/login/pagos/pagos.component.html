@@ -1,0 +1,115 @@
+<mat-toolbar color="link">
+    <mat-toolbar-row>
+        <span>Proceso para el registro de transferencias</span>
+        <span class="spacer"></span>
+        <button mat-stroked-button color="primary" (click)="openDialogPayment()">
+            <mat-icon aria-hidden="false">payment</mat-icon>
+            Pago
+        </button>
+        <button mat-stroked-button color="primary" (click)="openDialog()">
+            <mat-icon aria-hidden="false">update</mat-icon>
+            Registrar pago
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="parent">
+    <p>
+        <mat-form-field [style.width.px]=600>
+            <!-- <mat-label>Cédula o Ruc del Contribuyente</mat-label> -->
+            <input matInput readonly="true" [(ngModel)]="cedula">
+            <mat-icon matSuffix>featured_video</mat-icon>
+            <mat-hint>Cédula o Ruc del Contribuyente</mat-hint>
+        </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field [style.width.px]=600>
+            <!-- <mat-label>Nombres y Apellidos del Contribuyente</mat-label> -->
+            <input matInput readonly="true" [(ngModel)]="nombres">
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-hint>Nombres y Apellidos del Contribuyente</mat-hint>
+        </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field [style.width.px]=600>
+            <!-- <mat-label>Dirección de correo electrónico</mat-label> -->
+            <input matInput id="correo" autofocus [(ngModel)]="email">
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-hint>Dirección de correo electrónico ejemplo@gmail.com</mat-hint>
+        </mat-form-field>
+    </p>
+
+    <!-- 
+    <p>
+        <mat-form-field [style.width.px]=600>
+            <mat-label>Fecha en la que realizó la transferencia</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-hint>dd/mm/aaaa</mat-hint>
+        </mat-form-field>
+    </p> -->
+    <p>
+        <mat-form-field [style.width.px]=600>
+            <!-- <mat-label>Impuesto o Servicio que paga</mat-label> -->
+            <input matInput readonly="true" [(ngModel)]="referencia">
+            <mat-icon matSuffix>reorder</mat-icon>
+            <mat-hint>Número de referencia</mat-hint>
+        </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field [style.width.px]=600>
+            <!-- <mat-label>Impuesto o Servicio que paga</mat-label> -->
+            <input matInput readonly="true" [(ngModel)]="impuesto">
+            <mat-icon matSuffix>reorder</mat-icon>
+            <mat-hint>Impuesto o Servicio que paga el contribuyente</mat-hint>
+        </mat-form-field>
+    </p>
+
+
+
+    <p>
+        <mat-form-field [style.width.px]=600>
+            <!-- <mat-label>Valor a pagar</mat-label> -->
+            <input matInput readonly="true" [(ngModel)]="valor">
+            <mat-icon matSuffix>attach_money</mat-icon>
+            <mat-hint>Valor a pagar $</mat-hint>
+        </mat-form-field>
+    </p>
+
+
+    <!-- 
+    <p>
+        <mat-form-field [style.width.px]=600>
+            <mat-label>Número de comprobante de la transferencia</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-icon matSuffix>class</mat-icon>
+            <mat-hint></mat-hint>
+        </mat-form-field>
+    </p> -->
+
+
+    <!-- <p>
+        <button type="button" class="btn" (click)="fileInput.click()">
+            <span>Subir archivo</span>
+            <input #fileInput type="file" (change)="onFileInput($event)" style="display:none;" />
+            <mat-icon>file_upload</mat-icon>
+        </button>
+
+    </p> -->
+    <div style="text-align:center">
+        <app-material-file-upload (complete)="onFileComplete($event)"></app-material-file-upload>
+    </div>
+    <p>
+        <!-- <mat-form-field [style.width.px]=400> -->
+        <!-- <mat-label>Cargar el documento mediante foto o escaneo del comprobante de la transacción</mat-label> -->
+        <!-- <input class="btn" id="input-file-id" multiple type="file" /> -->
+        <!-- <label for="input-file-id" class="md-button md-raised md-primary">Choose Files</label> -->
+        <!-- <mat-icon>file_upload</mat-icon> -->
+        <mat-hint>Cargar el documento mediante foto o escaneo del comprobante de la transacción</mat-hint>
+        <!-- </mat-form-field> -->
+    </p>
+</div>

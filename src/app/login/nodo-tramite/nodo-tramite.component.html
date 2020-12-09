@@ -1,0 +1,47 @@
+<div *ngIf="codigo_documento; else elseBlock">
+    <h3 mat-dialog-title>Documento {{codigo_documento}}</h3>
+</div>
+<ng-template #elseBlock>
+    <h3 mat-dialog-title> </h3>
+</ng-template>
+
+<div mat-dialog-content>
+</div>
+<table>
+    <tr>
+        <th style="width: 200px;"><img src="assets/img/tramites.png" alt="Fallbackimage" width="150px"></th>
+        <th style="align-content: left; width: 500px; text-align: left;">
+            <ul>
+                <div *ngIf="codigo_documento; else elseBlock">
+                    <li>Tipo de documento: <span>{{origen_tipodoc}}</span>
+                    </li>
+                    <li>Asunto: <span>{{origen_form_asunto}}</span></li>
+                    <li>Fecha: <span>{{fecha}}</span></li>
+                    <li>Origen: <span>{{origen_nombres}}</span></li>
+                    <div *ngIf="origen_departament != '-'; else elseBlock">
+                        Departamento: <span>{{origen_departament}}</span>
+                    </div>
+                    <ng-template #elseBlock>
+                        Departamento: <span>EXTERNO</span>
+                    </ng-template>
+
+                    <li>Destino: <span>{{destino_nombres}}</span></li>
+                    <div *ngIf="destino_departament != '-'; else elseBlock">
+                        Departamento: <span>{{destino_departament}}</span>
+                    </div>
+                    <ng-template #elseBlock>
+                        Departamento: <span>EXTERNO</span>
+                    </ng-template>
+                    <li>Estado: <span>{{estado}}</span></li>
+                </div>
+                <ng-template #elseBlock>
+                    INICIO DE TRÁMITE
+                </ng-template>
+
+            </ul>
+        </th>
+    </tr>
+</table>
+<div mat-dialog-actions class="mat-typography" style="text-align: right;">
+    <button mat-raised-button color="primary" (click)="onNoClick()"><mat-icon>check</mat-icon>ACEPTAR</button>
+</div>
