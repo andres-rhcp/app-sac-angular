@@ -1,0 +1,75 @@
+.mat-form-field {
+    display: block;
+}
+.custom-modalbox >  mat-dialog-container {
+    padding: 0px;
+}
+.md-dialog-container {
+    width: 250px;
+}
+.my-class .mat-dialog-container{
+    height: 400px;
+    width: 600px;
+    border-radius: 10px;
+    background: lightcyan;
+    color: #039be5;
+  }
+    
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .text-red {
+    color: red;
+  }
+  .text-green {
+    color: green;
+  }
+
+  .text-orange {
+    color: #5DBCD2;
+  }
+
+  .text-red-bold {
+    color: red;
+    font-weight: bold;
+  }
+  .text-green-bold {
+    color: green;
+    font-weight: bold;
+  }
+
+  .mat-chip {
+    max-width: 30px;
+    font-size: 30px;
+  }
+
+  .green { 
+      font: rgb(50, 192, 35);
+      color: green;
+      font-weight: bold;
+    }
+    .red { 
+        font: red;
+        color: red;
+        font-weight: bold;
+      }
+  .yellow { 
+      background-color: #FBFF70;
+      font-weight: bold;
+    }
+    .mat-header-cell {
+        text-align: left;
+        font-weight: bold;
+    }
+
+    table {
+        text-align: left !important;
+        width: 100%;
+      }
+  
+ 

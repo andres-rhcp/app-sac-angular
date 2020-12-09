@@ -12,7 +12,7 @@ export interface DialogData {
   nombre: string;
   tramite: string;
 } 
-   
+    
 @Component({
   selector: './arbol-tramite-component',
   styleUrls: ['./arbol-tramite.component.css'],
