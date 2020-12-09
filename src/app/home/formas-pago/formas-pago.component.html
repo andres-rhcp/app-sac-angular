@@ -1,0 +1,67 @@
+   
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="id_forma_pago">
+              <th mat-header-cell *matHeaderCellDef> ID FORMA PAGO </th>
+              <td mat-cell *matCellDef="let element"> {{element.id_forma_pago}} </td>
+            </ng-container>                  
+             <!-- Name Column -->
+          <ng-container matColumnDef="forma_pago">
+            <th mat-header-cell *matHeaderCellDef> FORMA PAGO </th>
+            <td mat-cell *matCellDef="let element"> {{element.forma_pago}} </td>
+          </ng-container>      
+           <!-- Name Column -->
+           <ng-container matColumnDef="cantidadServidor">
+            <th mat-header-cell *matHeaderCellDef> CANTIDAD SERVIDOR </th>
+            <td mat-cell *matCellDef="let element">  {{element.cantidad}} </td>
+          </ng-container>    
+           <!-- Name Column -->
+           <ng-container matColumnDef="cantidadFarmacia">
+            <th mat-header-cell *matHeaderCellDef> CANTIDAD FARMACIA </th>
+            <td mat-cell *matCellDef="let element">  {{element.cantidadFarmacia}} </td>
+          </ng-container>   
+        <ng-container matColumnDef="diferenciaCantidad">
+                <th mat-header-cell *matHeaderCellDef> DIF. CANTIDAD </th>
+                <td mat-cell *matCellDef="let element">  
+                    <span *ngIf="((element.cantidad - element.cantidadFarmacia) !==0)" class="red" >
+                     {{element.cantidad - element.cantidadFarmacia }}</span>                   
+                    <span *ngIf="((element.cantidad - element.cantidadFarmacia) ===0)" class="green" >
+                       {{element.cantidad - element.cantidadFarmacia }}</span>                     
+                </td>
+        </ng-container>   
+                <!-- Name Column -->
+        <ng-container matColumnDef="totalServidor">
+                <th mat-header-cell *matHeaderCellDef> TOTAL SERVIDOR </th>
+                <td mat-cell *matCellDef="let element"> {{ element.total }} </td>
+         </ng-container>    
+             <!-- Name Column -->
+             <ng-container matColumnDef="totalFarmacia">
+                    <th mat-header-cell *matHeaderCellDef> TOTAL FARMACIA </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.totalFarmacia }} </td>
+             </ng-container>         
+             <ng-container matColumnDef="diferenciaTotal">
+                <th mat-header-cell *matHeaderCellDef> DIF. TOTAL </th>
+                <td mat-cell *matCellDef="let element">  
+                    <span *ngIf="(element.diferenciaTotal !==0)" class="red" >
+                     {{ element.diferenciaTotal }}</span>                   
+                    <span *ngIf="(element.diferenciaTotal ===0)" class="green" >
+                       {{ element.diferenciaTotal }}</span>                     
+                </td>
+              </ng-container> 
+                          
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          
+        </table>  
+        <mat-paginator [length]="100"
+          [pageSize]="10"
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          (page)="pageEvent = $event">
+</mat-paginator>
+      </div>
+      <span class="spacer"></span>    
+      <div mat-dialog-actions style="align-content: center;">
+            <button mat-button (click)="onNoClick()"><mat-icon>close</mat-icon>CANCELAR</button>
+        </div> 
+     

@@ -1,0 +1,56 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+
+
+  <img [src]="imageToShow" alt="Place image title" *ngIf="!isImageLoading; else noImageFound" width="450px">
+  <ng-template #noImageFound>
+    <img src="assets/img/notfound.jpg" alt="Fallbackimage" width="450px" >
+  </ng-template>
+  
+  
+  <!-- <div class="example-container "> 
+        <mat-form-field appearance="outline">
+        <mat-label>Origen</mat-label>
+        <input matInput placeholder="" [(ngModel)]="data.tablaOrigen">
+        <mat-icon matSuffix>create</mat-icon>
+    </mat-form-field>
+ </div>
+ <div class="example-container "> 
+    <mat-form-field appearance="outline">
+        <mat-label>Destino</mat-label>
+        <input matInput placeholder="" [(ngModel)]="data.tablaDestino">
+        <mat-icon matSuffix>create</mat-icon>
+    </mat-form-field>
+</div>
+<div class="example-container "> 
+    <mat-form-field appearance="outline">
+        <mat-label>Descripción</mat-label>
+        <input matInput placeholder=""   [(ngModel)]="data.descripcion">
+        <mat-icon matSuffix>create</mat-icon>
+    </mat-form-field>
+</div>
+<div class="example-container "> 
+        <mat-form-field appearance="outline">
+            <mat-label>Ruta</mat-label>
+            <input matInput placeholder="" [(ngModel)]="data.rutaServicio">
+            <mat-icon matSuffix>create</mat-icon>
+        </mat-form-field>
+</div>
+<div class="example-container "> 
+        <mat-form-field>
+                <mat-label>Estado</mat-label>
+                <mat-select [(ngModel)]="data.estado">
+                  <mat-option value="ACTIVO">ACTIVO</mat-option>
+                  <mat-option value="INACTIVO">INACTIVO</mat-option>
+                </mat-select>
+              </mat-form-field>
+</div> -->
+</div>
+<div mat-dialog-actions style="align-content: center;">
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
+    <mat-icon>save</mat-icon>GUARDAR
+  </button>
+  <button mat-button (click)="onNoClick()">
+    <mat-icon>close</mat-icon>CANCELAR
+  </button>
+</div>
