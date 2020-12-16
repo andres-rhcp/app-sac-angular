@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'tramites', component:TramitesComponent },
   { path: 'seguimiento', component:SeguimientoComponent },
   { path: 'intranet', component:IntranetComponent }
-];
+]; 
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
