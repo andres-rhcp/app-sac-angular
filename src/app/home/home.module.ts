@@ -26,9 +26,10 @@ import { FacturaDetallesComponent } from './factura-detalles/factura-detalles.co
 import { VentaDetallesComponent } from './venta-detalles/venta-detalles.component';
 import { FormasPagoComponent } from './formas-pago/formas-pago.component';
 import { FileComponent } from './file/file.component';
-
+import { RequisitosComponent} from '../login/requisitos/requisitos.component'
+import {PuntoInformacionComponent} from '../login/punto-informacion/punto-informacion.component'
 @NgModule({
-  declarations: [DashboardComponent,ListaTablasComponent, Payment, DialogComponent,  DialogNewComponent, DialogEditComponent, ListaLogsComponent, AdminTablasComponent, CrearTablaComponent, EditarTablaComponent, CuadreFacturasComponent, TablaOficinasComponent, FacturaDetallesComponent, VentaDetallesComponent, FormasPagoComponent, FileComponent
+  declarations: [DashboardComponent,ListaTablasComponent, Payment, DialogComponent,  DialogNewComponent, DialogEditComponent, ListaLogsComponent, AdminTablasComponent, CrearTablaComponent, EditarTablaComponent, CuadreFacturasComponent, TablaOficinasComponent, FacturaDetallesComponent, VentaDetallesComponent, FormasPagoComponent, FileComponent,PuntoInformacionComponent, RequisitosComponent
   ], 
   imports: [
     CommonModule,
@@ -51,7 +52,9 @@ import { FileComponent } from './file/file.component';
     TablaOficinasComponent,
     FacturaDetallesComponent,
     VentaDetallesComponent,
-    FormasPagoComponent
+    FormasPagoComponent,
+    RequisitosComponent,
+    PuntoInformacionComponent 
     ]
 })
 export class HomeModule { }

@@ -247,5 +247,11 @@ export class ServidorService {
         return respuesta;
       }));
   }
+  getPuntoInformacionAll(): Observable<any>{
+    return this.http.get<any[]>(`${this.constantsService.baseAppUrl}tramites/getTramitesAll`)
+    .pipe(map(respuesta => {
+      return respuesta;
+    }));
+  }
 
 }

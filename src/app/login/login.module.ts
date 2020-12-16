@@ -17,6 +17,8 @@ import { TramitesComponent } from './tramites/tramites.component';
 import { SeguimientoComponent } from './seguimiento/seguimiento.component';
 import { ArbolTramiteComponent } from './arbol-tramite/arbol-tramite.component';
 import { NodoTramiteComponent } from './nodo-tramite/nodo-tramite.component';
+// import { PuntoInformacionComponent } from './punto-informacion/punto-informacion.component';
+// import { RequisitosComponent } from './requisitos/requisitos.component';
 
 @NgModule({
   declarations: [LoginComponent, PagosComponent, ListaTablasComponent, MaterialFileUploadComponent, AsistenciaComponent, TramitesComponent, SeguimientoComponent, ArbolTramiteComponent, NodoTramiteComponent],
