@@ -19,7 +19,7 @@ export class AppComponent {
   private _mobileQueryListener: () => void;
   private _mobileQueryListener2: () => void;
   nombre_usuario: string;
-
+  aplicacion: string;
   constructor(
     private router: Router,
     private authenticationService:AuthenticationService,
@@ -31,7 +31,7 @@ export class AppComponent {
   {
     this.currentUser=this.authenticationService.currentUserValue;
     this.nombre_usuario = this.authenticationService.usuario;
-
+    this.aplicacion = this.authenticationService.aplicacion;
     this.authenticationService.currentUser.subscribe(x=>this.currentUser=x); 
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -39,6 +39,7 @@ export class AppComponent {
   }
   ngOnInit() {
     this.nombre_usuario = localStorage.getItem('usuario');
+    this.aplicacion = localStorage.getItem('aplicacion');
   }
 
   ngOnDestroy(): void {
@@ -69,5 +70,6 @@ export class AppComponent {
   }
 update(){
   this.nombre_usuario = localStorage.getItem('usuario');
+  this.aplicacion = localStorage.getItem('aplicacion');
 }
 }

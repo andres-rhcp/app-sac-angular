@@ -11,7 +11,7 @@ import { Input } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
   array_modulos = [];
-
+  xpandStatus=true;
   constructor(
     // private socket: Socket,
     private router: Router,
@@ -40,6 +40,22 @@ export class MenuComponent implements OnInit {
    {
     this.router.navigate([{outlets: {componentes:'lista-logs'}}]);
    } 
+   if( item.nombre === 'ingresoRecursos' )
+   {
+    this.router.navigate([{outlets: {componentes:'ingreso-recursos'}}]);
+   }
+   if( item.nombre === 'registroPrestamos' )
+   {
+    this.router.navigate([{outlets: {componentes:'ingreso-prestamos'}}]);
+   }
+   if( item.nombre === 'listaRecursos' )
+   {
+    this.router.navigate([{outlets: {componentes:'lista-recursos'}}]);
+   }
+   if( item.nombre === 'listaPrestamos' )
+   {
+    this.router.navigate([{outlets: {componentes:'lista-prestamos'}}]);
+   }
   }
 
 
@@ -50,6 +66,7 @@ ngOnInit()
   this.array_modulos = permisos.modulos;
   this.router.navigate([{outlets: {componentes:'lista-tablas'}}]);
   console.log(this.array_modulos)
+  
 }
 
 }
