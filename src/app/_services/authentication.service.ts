@@ -13,10 +13,12 @@ export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
   public usuario: string;
+  public aplicacion: string;
   constructor(private http: HttpClient, private constantsService:ConstantsService) {
     this.currentUserSubject = new BehaviorSubject<any>((localStorage.getItem('usuario')));
     this.currentUser = this.currentUserSubject.asObservable();
     this.usuario = (localStorage.getItem('usuario'));
+    this.usuario = (localStorage.getItem('aplicacion'));
    }
 
    login(usuario, password) {
@@ -31,6 +33,7 @@ export class AuthenticationService {
       localStorage.setItem('permisos', JSON.stringify(respuesta.permisos));
       localStorage.setItem('cedula', respuesta.cedula);
       localStorage.setItem('usuario', respuesta.usuario);
+      localStorage.setItem('aplicacion', respuesta.aplicacion);
       this.currentUserSubject.next(respuesta); 
       }
       return respuesta;
