@@ -68,5 +68,7 @@ import {PuntoInformacionComponent} from '../login/punto-informacion/punto-inform
     ListaPrestamosComponent,
     RequisitosComponent,
     PuntoInformacionComponent 
+  ]
+}) 
 
 export class HomeModule { }
