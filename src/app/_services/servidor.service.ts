@@ -247,6 +247,12 @@ export class ServidorService {
         return respuesta;
       }));
   }
+  getPuntoInformacionAll(): Observable<any>{
+    return this.http.get<any[]>(`${this.constantsService.baseAppUrl}tramites/getTramitesAll`)
+    .pipe(map(respuesta => {
+      return respuesta;
+    }));
+  }
 
   insertPrestamo(rec_mfn, pre_cedula, pre_nombres, pre_apellidos, pre_institucion,
     pre_nivel, pre_fecha_prestamo, pre_fecha_entrega, pre_observaciones, pre_estado, pre_campo_1,
