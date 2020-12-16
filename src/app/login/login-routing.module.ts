@@ -18,9 +18,9 @@ const routes: Routes = [
   { path: 'payment', component:Payment },
   { path: 'tramites', component:TramitesComponent },
   { path: 'seguimiento', component:SeguimientoComponent },
-  { path: 'intranet', component:IntranetComponent }
+  { path: 'intranet', component:IntranetComponent },
   { path: 'punto-informacion', component:PuntoInformacionComponent}
-
+]; 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
