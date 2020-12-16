@@ -1,0 +1,17 @@
+<link rel="icon" type="image/x-icon" href="assets/img/sol.ico">
+<div class="parent" >
+    <div style=" left: 20px; top: 0; text-align: left;">
+        <img width="400px" src="assets/img/logo-login.png" id="login" style=" top: 30px; left: 100px; margin-left: 20px;"/>
+    </div>
+    <div class="mat-card">
+        <table align="center">
+            <tr *ngFor="let item of lista">
+                <td>
+                    <mat-card class="example-card">
+                        <button mat-stroked-button color="primary" (click)="openRequisitos(item)">{{item.nombre_tramite}}
+                        </button>
+                    </mat-card>
+                </td>
+            </tr>
+        </table>
+    </div>

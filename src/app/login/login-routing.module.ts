@@ -7,6 +7,7 @@ import { Payment } from './payment/payment.component';
 import { TramitesComponent } from './tramites/tramites.component';
 import { SeguimientoComponent } from './seguimiento/seguimiento.component';
 import { IntranetComponent } from './intranet/intranet.component';
+import { PuntoInformacionComponent } from './punto-informacion/punto-informacion.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: 'tramites', component:TramitesComponent },
   { path: 'seguimiento', component:SeguimientoComponent },
   { path: 'intranet', component:IntranetComponent }
-];
+  { path: 'punto-informacion', component:PuntoInformacionComponent}
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

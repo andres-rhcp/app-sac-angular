@@ -24,6 +24,7 @@ import { FacturaDetallesComponent } from './factura-detalles/factura-detalles.co
 import { VentaDetallesComponent } from './venta-detalles/venta-detalles.component';
 import { FormasPagoComponent } from './formas-pago/formas-pago.component';
 import { FileComponent } from './file/file.component';
+
 import { IngresarRecursosComponent} from '../biblioteca/ingresar-recursos/ingresar-recursos.component';
 import { ListaRecursosComponent} from '../biblioteca/lista-recursos/lista-recursos.component';
 import { FichaRecursoComponent} from '../biblioteca/ficha-recurso/ficha-recurso.component';
@@ -31,9 +32,12 @@ import { IngresarPrestamosComponent} from '../biblioteca/ingresar-prestamos/ingr
 import { ListaRecursosBusquedaComponent} from '../biblioteca/lista-recursos-busqueda/lista-recursos-busqueda.component';
 import { ListaPrestamosComponent} from '../biblioteca/lista-prestamos/lista-prestamos.component';
 
+import { RequisitosComponent} from '../login/requisitos/requisitos.component'
+import {PuntoInformacionComponent} from '../login/punto-informacion/punto-informacion.component'
 @NgModule({
-  declarations: [DashboardComponent, ListaTablasComponent, Payment, DialogComponent, DialogNewComponent, DialogEditComponent, ListaLogsComponent, AdminTablasComponent, CrearTablaComponent, EditarTablaComponent, CuadreFacturasComponent, TablaOficinasComponent, FacturaDetallesComponent, VentaDetallesComponent, FormasPagoComponent, FileComponent, IngresarRecursosComponent, ListaRecursosComponent, FichaRecursoComponent, IngresarPrestamosComponent, ListaRecursosBusquedaComponent, ListaPrestamosComponent
+  declarations: [DashboardComponent, ListaTablasComponent, Payment, DialogComponent, DialogNewComponent, DialogEditComponent, ListaLogsComponent, AdminTablasComponent, CrearTablaComponent, EditarTablaComponent, CuadreFacturasComponent, TablaOficinasComponent, FacturaDetallesComponent, VentaDetallesComponent, FormasPagoComponent, FileComponent, IngresarRecursosComponent, ListaRecursosComponent, FichaRecursoComponent, IngresarPrestamosComponent, ListaRecursosBusquedaComponent, ListaPrestamosComponent,PuntoInformacionComponent, RequisitosComponent
   ],
+
   imports: [
     CommonModule,
     SharedModule,
@@ -61,7 +65,8 @@ import { ListaPrestamosComponent} from '../biblioteca/lista-prestamos/lista-pres
     FichaRecursoComponent,
     IngresarPrestamosComponent,
     ListaRecursosBusquedaComponent,
-    ListaPrestamosComponent
-  ]
-})
+    ListaPrestamosComponent,
+    RequisitosComponent,
+    PuntoInformacionComponent 
+
 export class HomeModule { }
