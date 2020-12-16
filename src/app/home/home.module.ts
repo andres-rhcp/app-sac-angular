@@ -63,5 +63,5 @@ import { ListaPrestamosComponent} from '../biblioteca/lista-prestamos/lista-pres
     ListaRecursosBusquedaComponent,
     ListaPrestamosComponent
   ]
-})
+}) 
 export class HomeModule { }
