@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
 
 export interface DialogData {
   animal: string;
-  name: string;
+  name: string; 
   nombre: string;
   tramite: string;
-} 
-    
+}   
+     
 @Component({
   selector: './arbol-tramite-component',
   styleUrls: ['./arbol-tramite.component.css'],
@@ -43,14 +43,14 @@ export class ArbolTramiteComponent {
 
         style: cytoscape.stylesheet()
           .selector('node')
-          .css({
+          .css({ 
             'height': 40,
             'width': 40,
             "text-valign": "center",
             "text-halign": "right",
             'background-image': '/assets/img/formulario.png',
             'background-color': 'white',
-            'background-fit': 'cover',
+            'background-fit': 'cover', 
             'border-color': '#000',
             'border-width': 3,
             'border-opacity': 0.5,
@@ -60,7 +60,7 @@ export class ArbolTramiteComponent {
             'font': 20,
             "background-height": '200px',
             "background-width": '200px',
-            'content': 'data(id)',
+            'content': 'data(id)', 
             'text-wrap': 'wrap',
             'cursor': 'pointer !important'
           })

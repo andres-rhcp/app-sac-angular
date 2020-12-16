@@ -16,10 +16,13 @@ import { AsistenciaComponent } from './asistencia/asistencia.component';
 import { TramitesComponent } from './tramites/tramites.component';
 import { SeguimientoComponent } from './seguimiento/seguimiento.component';
 import { ArbolTramiteComponent } from './arbol-tramite/arbol-tramite.component';
+import { InformacionRecursoComponent } from '../biblioteca/informacion-recurso/informacion-recurso.component';
 import { NodoTramiteComponent } from './nodo-tramite/nodo-tramite.component';
+import { IntranetComponent } from './intranet/intranet.component';
+
 
 @NgModule({
-  declarations: [LoginComponent, PagosComponent, ListaTablasComponent, MaterialFileUploadComponent, AsistenciaComponent, TramitesComponent, SeguimientoComponent, ArbolTramiteComponent, NodoTramiteComponent],
+  declarations: [LoginComponent, PagosComponent, ListaTablasComponent, MaterialFileUploadComponent, AsistenciaComponent, TramitesComponent, SeguimientoComponent, ArbolTramiteComponent, NodoTramiteComponent, InformacionRecursoComponent, IntranetComponent],
   imports: [
     CommonModule,
     LoginRoutingModule,
@@ -29,7 +32,8 @@ import { NodoTramiteComponent } from './nodo-tramite/nodo-tramite.component';
     MatProgressBarModule
   ], entryComponents: [
     ArbolTramiteComponent,
-    NodoTramiteComponent
+    NodoTramiteComponent,
+    InformacionRecursoComponent
   ]
 })
 export class LoginModule { }
