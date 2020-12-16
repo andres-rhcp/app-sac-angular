@@ -1,95 +1,26 @@
-
-  <mat-nav-list>
-        <mat-accordion >    
-            <mat-expansion-panel *ngFor="let item of array_modulos; let i = index" [expanded]="item.nombre=='pagosOnline'">
-                <mat-expansion-panel-header >
-                    <mat-panel-title class="sub-title">
-                        {{ item.descripcion }}
-                       
-                      </mat-panel-title>  
-                </mat-expansion-panel-header>
-  
-                <a mat-list-item *ngFor="let atribucion of item.transacciones; let k = index" (click)="listaRelaciones(atribucion)">
-                    <span *ngIf="atribucion.nombre==='consultaServicioAgua'" ><mat-icon>bar_chart</mat-icon>&nbsp;</span>
-                    <span *ngIf="atribucion.nombre==='pagoAguaPotable'" ><mat-icon>credit_card</mat-icon>&nbsp;</span>
-                    <span *ngIf="atribucion.nombre==='pagoImpuestoPredial'" ><mat-icon>view_comfy</mat-icon>&nbsp;</span>
-                    <span *ngIf="atribucion.nombre==='tra_cuadre'" ><mat-icon>bar_chart</mat-icon>&nbsp;</span>
-                    <span *ngIf="atribucion.nombre==='registroPagoTransferencias'" ><mat-icon>assignment_turned_in</mat-icon>&nbsp;</span>
-                    <span *ngIf="atribucion.nombre==='servidores'" ><mat-icon>computer</mat-icon>&nbsp;</span>
-                    <span *ngIf="atribucion.nombre==='servidores'" ><mat-icon>computer</mat-icon>&nbsp;</span>
-                    
-                    {{ atribucion.descripcion }}
-                </a>               
-  
-            </mat-expansion-panel>
-  
-          <!--
-          <mat-expansion-panel expanded >
-            <mat-expansion-panel-header >
-              
-                <mat-panel-title>
-                    <b>Parametrizaci&oacute;n</b>
-                  </mat-panel-title>              
-              
-              <mat-panel-description>
-                  
-              </mat-panel-description>              
-            </mat-expansion-panel-header>
-  
-  
-            <a mat-list-item (click)="listaRelaciones()">
-              <mat-icon>group_work</mat-icon>&nbsp;
-              Relaciones tablas
-            </a> 
-  
-            <a mat-list-item (click)="relacionesView()">
-                <mat-icon>playlist_add_check</mat-icon>&nbsp;
-                Comunicaci&oacute;n tablas
-            </a>                
-  
-  
-          </mat-expansion-panel>
-          
-          <mat-expansion-panel>
+<mat-nav-list>
+    <mat-accordion [multi]="true">
+        <mat-expansion-panel [(expanded)]="xpandStatus" *ngFor="let item of array_modulos; let i = index">
             <mat-expansion-panel-header>
-              <b>Comunicaciones</b>
+                <mat-panel-title class="sub-title">
+                    {{ item.descripcion }}
+                </mat-panel-title>
             </mat-expansion-panel-header>
-            <a mat-list-item (click)="relacionesView()">
-                <mat-icon>message</mat-icon>&nbsp;
-                Mensajes
-            </a>      
-  
-            <a mat-list-item (click)="relacionesView()">
-                <mat-icon>format_list_bulleted</mat-icon>&nbsp;
-                Tiendas Conectadas
+            <a mat-list-item *ngFor="let atribucion of item.transacciones; let k = index" (click)="listaRelaciones(atribucion)">
+                <span *ngIf="atribucion.nombre==='consultaServicioAgua'"><mat-icon>bar_chart</mat-icon>&nbsp;</span>
+                <span *ngIf="atribucion.nombre==='pagoAguaPotable'"><mat-icon>credit_card</mat-icon>&nbsp;</span>
+                <span *ngIf="atribucion.nombre==='pagoImpuestoPredial'"><mat-icon>view_comfy</mat-icon>&nbsp;</span>
+                <span *ngIf="atribucion.nombre==='tra_cuadre'"><mat-icon>bar_chart</mat-icon>&nbsp;</span>
+                <span *ngIf="atribucion.nombre==='registroPagoTransferencias'"><mat-icon>assignment_turned_in</mat-icon>&nbsp;</span>
+                <span *ngIf="atribucion.nombre==='servidores'"><mat-icon>computer</mat-icon>&nbsp;</span>
+                <span *ngIf="atribucion.nombre==='servidores'"><mat-icon>computer</mat-icon>&nbsp;</span>
+                <span *ngIf="atribucion.nombre==='ingresoRecursos'"><mat-icon>create_new_folder</mat-icon>&nbsp;</span>
+                <span *ngIf="atribucion.nombre==='listaRecursos'"><mat-icon>library_books</mat-icon>&nbsp;</span>
+                <span *ngIf="atribucion.nombre==='registroPrestamos'"><mat-icon mdListIcon>book_online</mat-icon>&nbsp;</span>
+                <span *ngIf="atribucion.nombre==='listaPrestamos'"><mat-icon mdListIcon>calendar_today</mat-icon>&nbsp;</span> {{ atribucion.descripcion }}
             </a>
-                        
-            <a mat-list-item (click)="relacionesView()">
-                <mat-icon>timeline</mat-icon>&nbsp;
-                Logs
-            </a>      
-    
-          </mat-expansion-panel>
-  
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              
-              <mat-panel-title>
-                  <b>Salir</b>
-                </mat-panel-title>              
-            
-            <mat-panel-description>            
-            </mat-panel-description>               
-            </mat-expansion-panel-header>
-  
-            <a mat-list-item (click)="relacionesView()">
-                <mat-icon>power_settings_new</mat-icon>&nbsp;
-                Cerrar sesi&oacute;n
-            </a>  
-            
-          </mat-expansion-panel>  --> 
-          
-          
-        </mat-accordion>
-      </mat-nav-list>
-  
+
+        </mat-expansion-panel>
+
+    </mat-accordion>
+</mat-nav-list>
