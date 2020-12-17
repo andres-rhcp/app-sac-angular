@@ -101,16 +101,22 @@ li {
 .example-button-row button,
 .example-button-row a {
     margin-right: 8px;
-    width: 100px!important;
+    width: 80px!important;
     min-width: unset!important;
-    height: 100px!important;
+    height: 80px!important;
     min-height: unset!important;
 }
 
 .icon {
-    font-size: 60px;
+    font-size: 50px;
 }
 
 .example-card {
-    max-width: 100px;
+    max-width: 90px;
+}
+
+mat-fab .mat-button-wrapper {
+    padding: 8px 0;
+    display: inline-block;
+    line-height: 24px;
 }

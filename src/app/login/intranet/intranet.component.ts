@@ -24,17 +24,23 @@ export class IntranetComponent implements OnInit {
   }
 
   abrirFieldWeb(element): void {
-    
-      const dialogRef = this.dialog.open(DialogComponent, {
-        width: '400px',
-        data: { title: 'Confirmación', message: '¿Está seguro de redirigirse a Fiel Web?' },
-        panelClass: 'my-class'
-      });
-      dialogRef.afterClosed().subscribe(result => {
-          // this.loadingService.show();
-          this.servidorService.abrirFieldWeb('');
-          this.loadingService.hide();
-      });
+
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '400px',
+      data: { title: 'Confirmación', message: '¿Está seguro de redirigirse a Fiel Web?' },
+      panelClass: 'my-class'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      // this.loadingService.show();
+      console.log('ingresa a consumir')
+      this.servidorService.abrirFieldWeb(this.constantsService.token)
+      .pipe(first())
+      .subscribe(
+        respuesta => {
+          console.log(respuesta)
+        });
+      this.loadingService.hide();
+    });
   }
 
 }
