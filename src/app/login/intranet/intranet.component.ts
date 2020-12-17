@@ -27,7 +27,7 @@ export class IntranetComponent implements OnInit {
     
       const dialogRef = this.dialog.open(DialogComponent, {
         width: '400px',
-        data: { title: 'Mensaje', message: '¿Está seguro de redirigirse a Fiel Web?' },
+        data: { title: 'Confirmación', message: '¿Está seguro de redirigirse a Fiel Web?' },
         panelClass: 'my-class'
       });
       dialogRef.afterClosed().subscribe(result => {

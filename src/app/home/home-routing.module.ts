@@ -12,7 +12,7 @@ import { IngresarRecursosComponent } from '../biblioteca/ingresar-recursos/ingre
 import { ListaRecursosComponent } from '../biblioteca/lista-recursos/lista-recursos.component';
 import { IngresarPrestamosComponent } from '../biblioteca/ingresar-prestamos/ingresar-prestamos.component';
 import { ListaPrestamosComponent } from '../biblioteca/lista-prestamos/lista-prestamos.component';
-
+import { TramitesComponent } from '../login/tramites/tramites.component'
 const routes: Routes = [
   { path: 'lista-logs', component: ListaLogsComponent, outlet: 'componentes' },
   // { path: 'dashboard', component: DashboardComponent, outlet: 'componentes' },
@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: 'lista-recursos', component: ListaRecursosComponent, outlet: 'componentes' },
   { path: 'ingreso-prestamos', component: IngresarPrestamosComponent, outlet: 'componentes' },
   { path: 'lista-prestamos', component: ListaPrestamosComponent, outlet: 'componentes' },
+  { path: 'tramites', component: TramitesComponent, outlet: 'componentes' },
 ];
 
 @NgModule({

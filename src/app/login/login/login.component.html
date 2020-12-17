@@ -1,5 +1,5 @@
 <mat-card *ngIf=(!currentUser)>
-    <img src="assets/img/cotacachi-logo-login.png" width="400px">
+    <img src="assets/img/cotacachi-logo-login.png" width="300px">
     <mat-card-title>Ingrese al sistema</mat-card-title>
     <mat-card-content>
         <form [formGroup]="loginForm" (ngSubmit)="login()">
@@ -22,13 +22,13 @@
                 </mat-form-field>
             </p>
             <div class="button">
-                <button type="submit" mat-raised-button color="primary">Ingresar</button>
+                <button type="submit" mat-raised-button color="accent">Ingresar</button>
             </div>
         </form>
     </mat-card-content>
 </mat-card>
 
 <div>
-    <button mat-fab color="primary" id="add-button" matTooltip="Volver al inicio" routerLink="../tramites">
+    <button mat-fab color="accent" id="add-button" matTooltip="Volver al inicio" routerLink="../intranet">
             <i class="material-icons" >home</i></button>
 </div>

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵConsole } from '@angular/core';
 import { ConstantsService } from '../_services/constants.service';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
@@ -325,22 +325,23 @@ export class ServidorService {
 
   async abrirFieldWeb(conte) {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('POST', 'https://www.fielweb.com/servicios/aerip.asmx?wsdl', true);
+    xmlhttp.open('POST', 'https://www.fielweb.com/servicios/aerip.asmx', true);
+    
     //the following variable contains my xml soap request (that you can get thanks to SoapUI for example)
     var sr =
-      `<soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/' >
-        <soap:Body>
-        <ObtenerToken>
-              <token>CEE1C1EB-FC71-4ADC-BC10-4184A35E868F</token>
-          </ObtenerToken>
-        </soap:Body>
-      </soap:Envelope>`;
-
+      `<soap:Envelope  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+      <soap:Body>
+        <ObtenerToken xmlns="http://tempuri.org/">
+          <token>CEE1C1EB-FC71-4ADC-BC10-4184A35E868F</token>
+        </ObtenerToken>
+      </soap:Body>
+    </soap:Envelope>`;
     xmlhttp.onreadystatechange = () => {
       if (xmlhttp.readyState == 4) {
         if (xmlhttp.status == 200) {
+          console.log(xmlhttp.response)
           var xml = xmlhttp.responseXML;
-          let response_number = parseInt(xml.getElementsByTagName("ObtenerTokenResponse")[0].childNodes[0].nodeValue); //Here I'm getting the value contained by the <return> node
+          let response_number = parseInt(xml.getElementsByTagName("return")[0].childNodes[0].nodeValue); //Here I'm getting the value contained by the <return> node
           console.log(response_number); //I'm printing my result square number
         }
       }
@@ -348,6 +349,7 @@ export class ServidorService {
     // Send the POST request
     xmlhttp.setRequestHeader('Content-Type', 'text/xml');
     xmlhttp.responseType = "text";
-    console.log(await xmlhttp.send(sr))
+    xmlhttp.send(sr)
+    console.log(xmlhttp.response)
   }
 }

@@ -34,6 +34,7 @@ import { ListaPrestamosComponent} from '../biblioteca/lista-prestamos/lista-pres
 
 import { RequisitosComponent} from '../login/requisitos/requisitos.component'
 import {PuntoInformacionComponent} from '../login/punto-informacion/punto-informacion.component'
+
 @NgModule({
   declarations: [DashboardComponent, ListaTablasComponent, Payment, DialogComponent, DialogNewComponent, DialogEditComponent, ListaLogsComponent, AdminTablasComponent, CrearTablaComponent, EditarTablaComponent, CuadreFacturasComponent, TablaOficinasComponent, FacturaDetallesComponent, VentaDetallesComponent, FormasPagoComponent, FileComponent, IngresarRecursosComponent, ListaRecursosComponent, FichaRecursoComponent, IngresarPrestamosComponent, ListaRecursosBusquedaComponent, ListaPrestamosComponent,PuntoInformacionComponent, RequisitosComponent
   ],

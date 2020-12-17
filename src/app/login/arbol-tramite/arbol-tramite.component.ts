@@ -43,7 +43,7 @@ export class ArbolTramiteComponent {
 
         style: cytoscape.stylesheet()
           .selector('node')
-          .css({ 
+          .css({  
             'height': 40,
             'width': 40,
             "text-valign": "center",
