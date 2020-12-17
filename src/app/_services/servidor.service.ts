@@ -326,7 +326,9 @@ export class ServidorService {
   abrirFieldWeb(token) {
     return this.http.post<any[]>(`${this.constantsService.baseAppUrl}fielweb/obtenerUrl`, { token })
     .pipe(map(respuesta => {
+      console.log(respuesta)
       return respuesta;
+      
     }));
   }
 }
