@@ -1,18 +1,19 @@
 import { Component, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA,MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { LoadingService, ServidorService, SnackBarService, ConstantsService, SharingDataService, DialogService } from '../../_services';
 import * as cytoscape from 'cytoscape';
 import { first } from 'rxjs/operators';
 import { NodoTramiteComponent } from '../nodo-tramite/nodo-tramite.component';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 export interface DialogData {
   animal: string;
-  name: string; 
+  name: string;
   nombre: string;
   tramite: string;
-}   
+}
 
 @Component({
   selector: 'app-arbol-tramite-sip',
@@ -20,7 +21,7 @@ export interface DialogData {
   styleUrls: ['./arbol-tramite-sip.component.css']
 })
 export class ArbolTramiteSipComponent {
-  cy: any; 
+  cy: any;
   returnUrl: string;
   animal: string;
   name: string;
@@ -38,17 +39,18 @@ export class ArbolTramiteSipComponent {
     private servidorService: ServidorService,
     public dialog: MatDialog,
     private router: Router,
-     ) {
-      this.route.queryParams.subscribe(params => {
-        this.tramite = params['tramite'];
-        this.nombres = params['nombres'] + ' ' + params['apellidos'];
-        this.apellidos = params['apellidos'];
-        this.impuesto = params['impuesto'];
-        this.valor = params['valor'];
-        this.referencia = params['referencia'];
-        this.email = '';
-      });
-     }
+    private _location: Location
+  ) {
+    this.route.queryParams.subscribe(params => {
+      this.tramite = params['tramite'];
+      this.nombres = params['nombres'] + ' ' + params['apellidos'];
+      this.apellidos = params['apellidos'];
+      this.impuesto = params['impuesto'];
+      this.valor = params['valor'];
+      this.referencia = params['referencia'];
+      this.email = '';
+    });
+  }
 
 
   ngOnInit(): void {
@@ -66,14 +68,14 @@ export class ArbolTramiteSipComponent {
 
         style: cytoscape.stylesheet()
           .selector('node')
-          .css({  
+          .css({
             'height': 40,
             'width': 40,
             "text-valign": "center",
             "text-halign": "right",
             'background-image': '/assets/img/formulario.png',
             'background-color': 'white',
-            'background-fit': 'cover', 
+            'background-fit': 'cover',
             'border-color': '#000',
             'border-width': 3,
             'border-opacity': 0.5,
@@ -83,7 +85,7 @@ export class ArbolTramiteSipComponent {
             'font': 20,
             "background-height": '200px',
             "background-width": '200px',
-            'content': 'data(id)', 
+            'content': 'data(id)',
             'text-wrap': 'wrap',
             'cursor': 'pointer !important'
           })
@@ -151,7 +153,7 @@ export class ArbolTramiteSipComponent {
         this.cy.add(e)
         padre = nodo.id;
       });
-     
+
       var i = 70;
       this.cy.nodes().layout({
         name: 'preset',
@@ -164,7 +166,7 @@ export class ArbolTramiteSipComponent {
           position.y = node.position('y') + i;
           i += 70;
           return position;
-        } 
+        }
       }).run();
       this.cy.on('tap', 'node', e => this.onNodeClicked(e),
 
@@ -221,6 +223,7 @@ export class ArbolTramiteSipComponent {
   }
 
   onNoClick(): void {
+    this._location.back();
     // this.dialogRef.close();
   }
 }
