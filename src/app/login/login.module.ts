@@ -19,10 +19,11 @@ import { ArbolTramiteComponent } from './arbol-tramite/arbol-tramite.component';
 import { InformacionRecursoComponent } from '../biblioteca/informacion-recurso/informacion-recurso.component';
 import { NodoTramiteComponent } from './nodo-tramite/nodo-tramite.component';
 import { IntranetComponent } from './intranet/intranet.component';
+import { ArbolTramiteSipComponent } from './arbol-tramite-sip/arbol-tramite-sip.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, PagosComponent, ListaTablasComponent, MaterialFileUploadComponent, AsistenciaComponent, TramitesComponent, SeguimientoComponent, ArbolTramiteComponent, NodoTramiteComponent, InformacionRecursoComponent, IntranetComponent],
+  declarations: [LoginComponent, PagosComponent, ListaTablasComponent, MaterialFileUploadComponent, AsistenciaComponent, TramitesComponent, SeguimientoComponent, ArbolTramiteComponent, NodoTramiteComponent, InformacionRecursoComponent, IntranetComponent, ArbolTramiteSipComponent],
   imports: [
     CommonModule,
     LoginRoutingModule,
@@ -34,6 +35,7 @@ import { IntranetComponent } from './intranet/intranet.component';
     ArbolTramiteComponent,
     NodoTramiteComponent,
     InformacionRecursoComponent
+    
   ]
 })
 export class LoginModule { }

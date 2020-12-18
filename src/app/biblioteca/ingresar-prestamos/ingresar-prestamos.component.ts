@@ -42,7 +42,7 @@ export class IngresarPrestamosComponent implements OnInit {
     private servidorService: ServidorService,
     private snackBarService: SnackBarService,
     public constantsService: ConstantsService,
-    private sharingDataService: SharingDataService,) { }
+    private sharingDataService: SharingDataService) { }
 
   ngOnInit() {
   }

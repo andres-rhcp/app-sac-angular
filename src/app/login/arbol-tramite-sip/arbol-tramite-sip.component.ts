@@ -1,10 +1,11 @@
 import { Component, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA,MatDialogModule } from '@angular/material/dialog';
 import { LoadingService, ServidorService, SnackBarService, ConstantsService, SharingDataService, DialogService } from '../../_services';
 import * as cytoscape from 'cytoscape';
 import { first } from 'rxjs/operators';
 import { NodoTramiteComponent } from '../nodo-tramite/nodo-tramite.component';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 export interface DialogData {
   animal: string;
@@ -12,27 +13,49 @@ export interface DialogData {
   nombre: string;
   tramite: string;
 }   
-      
-@Component({
-  selector: './arbol-tramite-component',
-  styleUrls: ['./arbol-tramite.component.css'],
-  templateUrl: './arbol-tramite.component.html',
-})
-export class ArbolTramiteComponent {
-  cy: any; 
-  constructor(
 
-    public dialogRef: MatDialogRef<NodoTramiteComponent>,
+@Component({
+  selector: 'app-arbol-tramite-sip',
+  templateUrl: './arbol-tramite-sip.component.html',
+  styleUrls: ['./arbol-tramite-sip.component.css']
+})
+export class ArbolTramiteSipComponent {
+  cy: any; 
+  returnUrl: string;
+  animal: string;
+  name: string;
+  result: string = '';
+  tramite: string;
+  nombres: string;
+  apellidos: string;
+  impuesto: string;
+  valor: string;
+  referencia: string;
+  email: string;
+  constructor(
+    private route: ActivatedRoute,
+    // public dialogRef: MatDialogRef<NodoTramiteComponent>,
     private servidorService: ServidorService,
     public dialog: MatDialog,
     private router: Router,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+     ) {
+      this.route.queryParams.subscribe(params => {
+        this.tramite = params['tramite'];
+        this.nombres = params['nombres'] + ' ' + params['apellidos'];
+        this.apellidos = params['apellidos'];
+        this.impuesto = params['impuesto'];
+        this.valor = params['valor'];
+        this.referencia = params['referencia'];
+        this.email = '';
+      });
+     }
+
 
   ngOnInit(): void {
 
     this.getImageFromService();
-    var nodos = this.servidorService.getTramiteById(this.data.tramite).pipe(first()).subscribe(data => {
-      // console.log(JSON.stringify(data, null, "    "))
+    var nodos = this.servidorService.getTramiteById(this.tramite).pipe(first()).subscribe(data => {
+      console.log(JSON.stringify(data, null, "    "))
       var nodos = JSON.stringify(data, null, "    ");
 
       this.cy = cytoscape({
@@ -163,13 +186,13 @@ export class ArbolTramiteComponent {
   private isImageLoading: any;
   getImageFromService() {
     this.isImageLoading = true;
-    this.servidorService.getFile(this.data.nombre).subscribe(data => {
-      this.createImageFromBlob(data);
-      this.isImageLoading = false;
-    }, error => {
-      this.isImageLoading = true;
-      console.log(error);
-    });
+    // this.servidorService.getFile('').subscribe(data => {
+    //   this.createImageFromBlob(data);
+    //   this.isImageLoading = false;
+    // }, error => {
+    //   this.isImageLoading = true;
+    //   console.log(error);
+    // });
   }
 
   createImageFromBlob(image: Blob) {
@@ -198,6 +221,6 @@ export class ArbolTramiteComponent {
   }
 
   onNoClick(): void {
-    this.dialogRef.close();
+    // this.dialogRef.close();
   }
 }
