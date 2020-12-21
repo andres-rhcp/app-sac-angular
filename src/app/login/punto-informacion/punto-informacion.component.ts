@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServidorService } from '../../_services';
+import { ServidorService, ConstantsService } from '../../_services';
 import { MatDialog } from '@angular/material';
 import { RequisitosComponent } from '../requisitos/requisitos.component'
 @Component({
@@ -14,6 +14,7 @@ export class PuntoInformacionComponent implements OnInit {
 
   constructor(
     private servidorService: ServidorService,
+    public constantsService: ConstantsService,
     private dialog: MatDialog) {
   }
 
@@ -23,6 +24,7 @@ export class PuntoInformacionComponent implements OnInit {
       this.conversion = data;
       this.lista = this.conversion;
     });
+    this.busquedaRequisitos();
   }
 
   openRequisitos(item): void {
@@ -36,5 +38,4 @@ export class PuntoInformacionComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {});
   }
-
 }

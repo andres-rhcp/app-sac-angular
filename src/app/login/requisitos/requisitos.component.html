@@ -1,1 +1,15 @@
-<p>requisitos works!</p>
+<div class="mat-card">
+    <h2 align="center">{{nombre_tramite}}</h2>
+</div>
+<div class="mat-elevation-z8">
+    <table mat-table class="matTable" [dataSource]="dataSource">
+        <ng-container matColumnDef="titilo_grupo">
+                <th mat-header-cell *matHeaderCellDef class="estilo"></th>
+                <td mat-cell *matCellDef="let element" class="estilo"><b>{{element.titilo_grupo}}</b></td>
+        </ng-container>
+        <ng-container matColumnDef="campo_nombre">
+                <th mat-header-cell *matHeaderCellDef><b>Título</b></th>
+                <td mat-cell *matCellDef="let element"> {{element.campo_nombre}} </td>
+        </ng-container>
+    </table>
+</div> 

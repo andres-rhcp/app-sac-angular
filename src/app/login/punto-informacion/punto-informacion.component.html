@@ -1,17 +1,40 @@
 <link rel="icon" type="image/x-icon" href="assets/img/sol.ico">
-<div class="parent" >
-    <div style=" left: 20px; top: 0; text-align: left;">
-        <img width="400px" src="assets/img/logo-login.png" id="login" style=" top: 30px; left: 100px; margin-left: 20px;"/>
+<div class="parent">
+    <div style=" left: 20px; top: 0; text-align: center;">
+        <img width="400px" src="assets/img/logo-login.png" id="login"
+            style=" top: 30px; left: 100px; margin-left: 20px;" />
     </div>
-    <div class="mat-card">
-        <table align="center">
-            <tr *ngFor="let item of lista">
+    <div class="mat-card" style="text-align: center;">
+        <h1>Requisitos de Trámites</h1>
+        <div class="form-group">
+            <input  matInput (keyup)="applyFilter($event)" placeholder="BUSCAR" >
+        </div>
+        <table style="text-align: center;">
+            <tr>
+                <li *ngFor="let item of lista; let i = index">
+            <tr *ngIf="i%3 == 0 ">
                 <td>
                     <mat-card class="example-card">
-                        <button mat-stroked-button color="primary" (click)="openRequisitos(item)">{{item.nombre_tramite}}
+                        <button mat-stroked-button color="primary" style="width: 250px; white-space: normal; height: 100px"
+                            (click)="openRequisitos(item)">{{item.nombre_tramite}}
+                        </button>
+                    </mat-card>
+                </td>
+                <td>
+                    <mat-card class="example-card">
+                        <button mat-stroked-button color="primary" style="width: 250px; white-space: normal;  height: 100px"
+                            (click)="openRequisitos(item)">{{lista[i+1].nombre_tramite}}
+                        </button>
+                    </mat-card>
+                </td>
+                <td>
+                    <mat-card class="example-card">
+                        <button mat-stroked-button color="primary" style="width: 250px; white-space: normal;  height: 100px"
+                            (click)="openRequisitos(item)">{{lista[i+2].nombre_tramite}}
                         </button>
                     </mat-card>
                 </td>
             </tr>
+            </li>
         </table>
     </div>

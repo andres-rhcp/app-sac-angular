@@ -241,6 +241,13 @@ export class ServidorService {
         return respuesta;
       }));
   }
+
+  getRequisitosByTramiteId(id): Observable<any> {
+    return this.http.post<any[]>(`${this.constantsService.baseAppUrl}tramites/getRequisitosByTramiteId`, { id })
+      .pipe(map(respuesta => {
+        return respuesta;
+      }));
+  }
   getDocumentoById(codigo): Observable<any> {
     return this.http.post<any[]>(`${this.constantsService.baseAppUrl}tramites/getDocumentoById`, { codigo })
       .pipe(map(respuesta => {

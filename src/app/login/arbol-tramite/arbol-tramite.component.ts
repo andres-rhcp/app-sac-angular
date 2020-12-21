@@ -140,7 +140,7 @@ export class ArbolTramiteComponent {
           position.x = node.position('x') + 100;
           position.y = node.position('y') + i;
           i += 70;
-          return position;
+          return position; 
         } 
       }).run();
       this.cy.on('tap', 'node', e => this.onNodeClicked(e),
