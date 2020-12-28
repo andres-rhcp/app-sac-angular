@@ -1,0 +1,28 @@
+<mat-card>
+    <img src="assets/img/cotacachi-logo-login.png" width="400px">
+    <mat-card-title>Portal Ciudadano</mat-card-title>
+    <mat-card-content>
+        <form>
+            <p>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="CEDULA" [(ngModel)]="cedula" [ngModelOptions]="{standalone: true}"/>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input [type]=" 'password' " placeholder="PASSWORD" matInput [(ngModel)]="password" [ngModelOptions]="{standalone: true}" required/>
+                </mat-form-field>
+            </p>
+            <div class="button">
+                <button type="submit" mat-raised-button color="primary" (click)="LoginCiudadano()" >Ingresar</button>
+            </div>
+        </form>
+    </mat-card-content>
+
+    <div>
+        <label>
+            <a href="../registro-ciudadano"> Registrarse </a>
+        </label>
+    </div>
+
+</mat-card>

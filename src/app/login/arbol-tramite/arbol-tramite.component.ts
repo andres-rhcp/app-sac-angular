@@ -139,7 +139,7 @@ export class ArbolTramiteComponent {
           let position = {};
           position.x = node.position('x') + 100;
           position.y = node.position('y') + i;
-          i += 70;
+          i += 70; 
           return position;
         } 
       }).run();

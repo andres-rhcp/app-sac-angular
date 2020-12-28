@@ -1,0 +1,24 @@
+<div *ngIf="dato == 'OK'" style="text-align: center;">
+    <img src="assets/img/ok-check-once.gif" width="300px" style="animation: like-gif steps(1) 1s  both;">
+    <BR><h3>¡CUENTA ACTIVADA!</h3>
+            <button type="submit" mat-raised-button color="primary" (click)="Dirigir_a_LoginCiudadano()">CONTINUAR</button>
+</div>
+
+<div *ngIf="dato == 'NO'" style="text-align: center;">
+    <img src="assets/img/sol.png" width="200px">
+    <BR><h3>¡CUENTA YA FUE ACTIVADA!</h3>
+        <button type="submit" mat-raised-button color="primary" (click)="onNoClick()">ACEPTAR</button>
+</div>
+
+<div *ngIf="dato == 'OK-nuevo-usuario'" style="text-align: center;">
+    <img src="assets/img/ok-check-once.gif" width="200px">
+    <BR><h3>¡CUENTA DE USUARIO CREADA!</h3>
+    <BR><h3>¡LE HEMOS ENVIADO UN MENSAJE A SU CORREO ELECTRONICO PARA QUE ACTIVE SU CUENTA!</h3> 
+        <button type="submit" mat-raised-button color="primary" (click)="Dirigir_a_LoginCiudadano()">ACEPTAR</button>
+</div>
+
+<div *ngIf="dato == 'NO-CEDULA'" style="text-align: center;">
+    <img src="assets/img/sol.png" width="200px">
+    <BR><h3>¡CEDULA INCORRECTA!</h3>
+        <button type="submit" mat-raised-button color="primary" (click)="onNoClick()">ACEPTAR</button>
+</div>

@@ -1,0 +1,42 @@
+<mat-card>
+    <img src="assets/img/cotacachi-logo-login.png" width="400px">
+    <mat-card-title>Registro de Ciudadanos</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="ingresarForm" (ngSubmit)="registrar_usuario()" >
+            <p>
+                <mat-form-field>
+                    <input type=" 'text' " placeholder="CEDULA" matInput formControlName="cedula" (focusout)="ValidarCedula()" />
+                    <mat-error *ngIf="hasError('cedula', 'required') ">Campo requerido</mat-error>
+                    <mat-error *ngIf="hasError('cedula', 'pattern') ">Ingrese cédula o pasaporte valido</mat-error>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input [type]=" 'text' " placeholder="NOMBRES" matInput [(ngModel)]="nombres" [ngModelOptions]="{standalone: true}" onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))" />
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input [type]=" 'text' " placeholder="APELLIDOS" matInput [(ngModel)]="apellidos" [ngModelOptions]="{standalone: true}" onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))" />
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input [type]=" 'email' " placeholder="EMAIL" matInput [(ngModel)]="correo_electronico" [ngModelOptions]="{standalone: true}" />
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input [type]=" 'password' " placeholder="PASSWORD" matInput [(ngModel)]="contrasenia" [ngModelOptions]="{standalone: true}" />
+                </mat-form-field>
+            </p>
+                <button mat-raised-button color="primary" type="submit">Registrar</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<div>
+    <button mat-fab color="primary" id="add-button" matTooltip="Volver al inicio" routerLink="../tramites">
+            <i class="material-icons" >home</i>
+    </button>
+</div>

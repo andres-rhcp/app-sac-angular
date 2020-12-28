@@ -57,7 +57,7 @@ import { StorageServiceModule } from 'angular-webstorage-service';
     // IoModule.forRoot(config),
     BrowserModule,
     StorageServiceModule,
-    InicioModule
+    InicioModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

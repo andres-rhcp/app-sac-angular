@@ -13,6 +13,7 @@ import { ListaRecursosComponent } from '../biblioteca/lista-recursos/lista-recur
 import { IngresarPrestamosComponent } from '../biblioteca/ingresar-prestamos/ingresar-prestamos.component';
 import { ListaPrestamosComponent } from '../biblioteca/lista-prestamos/lista-prestamos.component';
 
+
 const routes: Routes = [
   { path: 'lista-logs', component: ListaLogsComponent, outlet: 'componentes' },
   // { path: 'dashboard', component: DashboardComponent, outlet: 'componentes' },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'ingreso-recursos', component: IngresarRecursosComponent, outlet: 'componentes' },
   { path: 'lista-recursos', component: ListaRecursosComponent, outlet: 'componentes' },
   { path: 'ingreso-prestamos', component: IngresarPrestamosComponent, outlet: 'componentes' },
+  { path: 'lista-prestamos', component: ListaPrestamosComponent, outlet: 'componentes' },
   { path: 'lista-prestamos', component: ListaPrestamosComponent, outlet: 'componentes' },
 ];
 
