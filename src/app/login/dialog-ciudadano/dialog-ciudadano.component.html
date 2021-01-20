@@ -22,3 +22,27 @@
     <BR><h3>¡CEDULA INCORRECTA!</h3>
         <button type="submit" mat-raised-button color="primary" (click)="onNoClick()">ACEPTAR</button>
 </div>
+
+<div *ngIf="dato == 'SIN-TIPO'" style="text-align: center;">
+    <img src="assets/img/sol.png" width="200px">
+    <BR><h3>¡SELECCIONE EL TIPO DE IDENTIFICACION CON EL QUE SE REGISTRARÁ!</h3>
+        <button type="submit" mat-raised-button color="primary" (click)="onNoClick()">ACEPTAR</button>
+</div>
+
+<div *ngIf="dato == 'NO-RUC'" style="text-align: center;">
+    <img src="assets/img/sol.png" width="200px">
+    <BR><h3>¡RUC INGRESADO INCORRECTO!</h3>
+        <button type="submit" mat-raised-button color="primary" (click)="onNoClick()">ACEPTAR</button>
+</div>
+
+<div *ngIf="dato == 'NO-CREDENCIALES'" style="text-align: center;">
+    <img src="assets/img/sol.png" width="200px">
+    <BR><h3>¡CREDENCIALES INCORRECTAS, PORFAVOR COMPLETE LOS CAMPOS REQUERIDOS!</h3>
+        <button type="submit" mat-raised-button color="primary" (click)="onNoClick()">ACEPTAR</button>
+</div>
+
+<div *ngIf="dato == 'NO-LOGIN'" style="text-align: center;">
+    <img src="assets/img/sol.png" width="200px">
+    <BR><h3>CREDENCIALES INCORRECTAS</h3>
+        <button type="submit" mat-raised-button color="primary" (click)="onNoClick()">ACEPTAR</button>
+</div>

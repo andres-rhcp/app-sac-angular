@@ -6,7 +6,8 @@ import { HttpClient } from '@angular/common/http'
 })
 export class CiudadaniaService 
 {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) 
+  {}
 
   postRegistrarCiudadano(cedula, nombres, apellidos, password, email)
   {

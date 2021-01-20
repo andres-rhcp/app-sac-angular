@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
-import { CiudadaniaService } from 'src/app/_services/ciudadania.service'
+import { Router } from '@angular/router';
+import { CiudadaniaService } from 'src/app/_services/ciudadania.service';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { User } from 'src/app/_models/user'
+import { User } from 'src/app/_models/user';
+import { MatDialog } from '@angular/material';
+import { DialogCiudadanoComponent } from 'src/app/login/dialog-ciudadano/dialog-ciudadano.component';
 
 @Component({
   selector: 'app-login-ciudadano',
@@ -19,7 +21,7 @@ export class LoginCiudadanoComponent implements OnInit
   public currentUser: Observable<User>;
   public usuario: string;
 
-  constructor(private ciudadanoService: CiudadaniaService, private router: Router) 
+  constructor(private ciudadanoService: CiudadaniaService, private router: Router, public dialog: MatDialog) 
   { 
     this.currentUserSubject = new BehaviorSubject<any>((localStorage.getItem('usuario')));
     this.currentUser = this.currentUserSubject.asObservable();
@@ -31,6 +33,7 @@ export class LoginCiudadanoComponent implements OnInit
 
   LoginCiudadano()
   {
+    this.password = btoa(this.password);
     this.ciudadanoService.postLoginCiudadano(this.cedula,this.password).subscribe(
       data => {
         this.datos = data
@@ -40,9 +43,13 @@ export class LoginCiudadanoComponent implements OnInit
           localStorage.setItem('transacciones', JSON.stringify(this.datos.transacciones))
           localStorage.setItem('cedula', this.datos.usuario_cedula);
           localStorage.setItem('nombre', this.datos.usuario_nombres);
+          localStorage.setItem('apellidos', this.datos.usuario_appeliidos);
           this.currentUserSubject.next(this.datos);
           //reenvio al landing page
           this.router.navigate(['ciudadano/landing-page'])
+        }else
+        {
+          this.abrirDialog("NO-LOGIN")
         }
       }
     )
@@ -52,5 +59,16 @@ export class LoginCiudadanoComponent implements OnInit
   {
     localStorage.clear();
     this.currentUserSubject.next(null);
+  }
+
+  abrirDialog(respuesta)
+  {
+    const dialogRef = this.dialog.open(DialogCiudadanoComponent, {
+      data: { respuesta: respuesta},
+      width: '500PX',
+      height:'590px',
+      panelClass: 'my-class'
+    });
+    dialogRef.afterClosed().subscribe(result => {});
   }
 }

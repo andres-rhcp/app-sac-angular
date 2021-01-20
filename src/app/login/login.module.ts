@@ -24,6 +24,7 @@ import { RegistroCiudadanoComponent } from './registro-ciudadano/registro-ciudad
 import { ActivacionCuentaComponent } from './activacion-cuenta/activacion-cuenta.component'
 import { PortalCiudadanoModule } from '../portal-ciudadano/portal-ciudadano.module';
 import { DialogCiudadanoComponent } from './dialog-ciudadano/dialog-ciudadano.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [LoginComponent, PagosComponent, ListaTablasComponent, MaterialFileUploadComponent, AsistenciaComponent, TramitesComponent, SeguimientoComponent, ArbolTramiteComponent, NodoTramiteComponent, InformacionRecursoComponent, IntranetComponent, LoginCiudadanoComponent, RegistroCiudadanoComponent, ActivacionCuentaComponent, DialogCiudadanoComponent],
@@ -35,7 +36,8 @@ import { DialogCiudadanoComponent } from './dialog-ciudadano/dialog-ciudadano.co
     FormsModule,
     MatProgressBarModule,
     PortalCiudadanoModule,
-    MatDialogModule
+    MatDialogModule,
+    MatRadioModule
   ], entryComponents: [
     ArbolTramiteComponent,
     NodoTramiteComponent,

@@ -2,35 +2,51 @@
     <img src="assets/img/cotacachi-logo-login.png" width="400px">
     <mat-card-title>Registro de Ciudadanos</mat-card-title>
     <mat-card-content>
-        <form [formGroup]="ingresarForm" (ngSubmit)="registrar_usuario()" >
+        <form [formGroup]="ingresarForm">
+            <p>
+                <mat-radio-group [(ngModel)]="tipo_identificacion" [ngModelOptions]="{standalone: true}">
+                    <label>Tipo de identificación: </label>
+                    <mat-radio-button class="example-margin" value="cedula" >Cedula</mat-radio-button>
+                    <mat-radio-button class="example-margin" value="ruc">RUC</mat-radio-button>
+                    <mat-radio-button class="example-margin" value="pasaporte">Pasaporte</mat-radio-button>
+                </mat-radio-group>
+            </p>
             <p>
                 <mat-form-field>
-                    <input type=" 'text' " placeholder="CEDULA" matInput formControlName="cedula" (focusout)="ValidarCedula()" />
+                    <input type=" 'text' " placeholder="IDENTIFICACIÓN" matInput formControlName="cedula" />
                     <mat-error *ngIf="hasError('cedula', 'required') ">Campo requerido</mat-error>
                     <mat-error *ngIf="hasError('cedula', 'pattern') ">Ingrese cédula o pasaporte valido</mat-error>
                 </mat-form-field>
             </p>
             <p>
                 <mat-form-field>
-                    <input [type]=" 'text' " placeholder="NOMBRES" matInput [(ngModel)]="nombres" [ngModelOptions]="{standalone: true}" onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))" />
+                    <input [type]=" 'text' " placeholder="NOMBRES" matInput formControlName="nombres" />
+                    <mat-error *ngIf="hasError('nombres', 'required') ">Campo requerido</mat-error>
+                    <mat-error *ngIf="hasError('nombres', 'pattern') ">Ingrese en formato: Nombre1 Nombre2</mat-error>
                 </mat-form-field>
             </p>
             <p>
                 <mat-form-field>
-                    <input [type]=" 'text' " placeholder="APELLIDOS" matInput [(ngModel)]="apellidos" [ngModelOptions]="{standalone: true}" onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))" />
+                    <input [type]=" 'text' " placeholder="APELLIDOS" matInput formControlName="apellidos" />
+                    <mat-error *ngIf="hasError('apellidos', 'required') ">Campo requerido</mat-error>
+                    <mat-error *ngIf="hasError('apellidos', 'pattern') ">Ingrese en formato: Apellido1 Apellido2</mat-error>
                 </mat-form-field>
             </p>
             <p>
                 <mat-form-field>
-                    <input [type]=" 'email' " placeholder="EMAIL" matInput [(ngModel)]="correo_electronico" [ngModelOptions]="{standalone: true}" />
+                    <input [type]=" 'email' " placeholder="EMAIL" matInput formControlName="correo_electronico" />
+                    <mat-error *ngIf="hasError('correo_electronico', 'required') ">Campo requerido</mat-error>
+                    <mat-error *ngIf="hasError('correo_electronico', 'pattern') ">Correo electronico incorrecto</mat-error>
                 </mat-form-field>
             </p>
             <p>
                 <mat-form-field>
-                    <input [type]=" 'password' " placeholder="PASSWORD" matInput [(ngModel)]="contrasenia" [ngModelOptions]="{standalone: true}" />
+                    <input [type]=" 'password' " placeholder="PASSWORD" matInput formControlName="contrasenia" />
+                    <mat-error *ngIf="hasError('contrasenia', 'required') ">Contraseña requerida</mat-error>
+                    <mat-error *ngIf="hasError('contrasenia', 'pattern') ">Contraseña incorrecta La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.</mat-error>
                 </mat-form-field>
             </p>
-                <button mat-raised-button color="primary" type="submit">Registrar</button>
+                <button mat-raised-button color="primary" type="submit" (click)="validar_y_registrar()" >Registrar</button>
         </form>
     </mat-card-content>
 </mat-card>

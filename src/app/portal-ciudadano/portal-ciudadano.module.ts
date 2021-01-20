@@ -5,6 +5,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { PortalCiudadanoRoutingModule } from './portal-ciudadano-routing.module';
 import { SesionLandingpageComponent } from './sesion-landingpage/sesion-landingpage.component';
@@ -18,6 +21,9 @@ import { SesionLandingpageComponent } from './sesion-landingpage/sesion-landingp
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
     PortalCiudadanoRoutingModule
   ],
   exports: [SesionLandingpageComponent]
