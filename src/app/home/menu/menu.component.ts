@@ -24,30 +24,30 @@ export class MenuComponent implements OnInit {
     console.log(item)
     //this.router.navigate(['/home/relaciones']);
     //this.router.navigate([{outlets: {primary: 'relaciones' ,componentes:'relaciones'}}]);
-    if (item.nombre === 'consultaServicioAgua') {
-      this.router.navigate([{ outlets: { componentes: 'lista-tablas' } }]);
+    // if (item.nombre === 'consultaServicioAgua') {
+    //   this.router.navigate([{ outlets: { componentes: 'lista-tablas' } }]);
+    // }
+    // if (item.nombre === 'pagoAguaPotable') {
+    //   this.router.navigate([{ outlets: { componentes: 'lista-logs' } }]);
+    // }
+    // if (item.nombre === 'pagoImpuestoPredial') {
+    //   this.router.navigate([{ outlets: { componentes: 'admin-tablas' } }]);
+    // }
+    // if (item.nombre === 'registroPagoTransferencias') {
+    //   this.router.navigate([{ outlets: { componentes: 'lista-logs' } }]);
+    // }
+    if (item === 'products') {
+      this.router.navigate([{ outlets: { componentes: 'insert-product' } }]);
     }
-    if (item.nombre === 'pagoAguaPotable') {
-      this.router.navigate([{ outlets: { componentes: 'lista-logs' } }]);
+    if (item === 'ship') {
+      this.router.navigate([{ outlets: { componentes: 'managment-product' } }]);
     }
-    if (item.nombre === 'pagoImpuestoPredial') {
-      this.router.navigate([{ outlets: { componentes: 'admin-tablas' } }]);
-    }
-    if (item.nombre === 'registroPagoTransferencias') {
-      this.router.navigate([{ outlets: { componentes: 'lista-logs' } }]);
-    }
-    if (item.nombre === 'ingresoRecursos') {
-      this.router.navigate([{ outlets: { componentes: 'ingreso-recursos' } }]);
-    }
-    if (item.nombre === 'registroPrestamos') {
-      this.router.navigate([{ outlets: { componentes: 'ingreso-prestamos' } }]);
-    }
-    if (item.nombre === 'listaRecursos') {
-      this.router.navigate([{ outlets: { componentes: 'lista-recursos' } }]);
-    }
-    if (item.nombre === 'listaPrestamos') {
-      this.router.navigate([{ outlets: { componentes: 'lista-prestamos' } }]);
-    }
+    // if (item.nombre === 'listaRecursos') {
+    //   this.router.navigate([{ outlets: { componentes: 'lista-recursos' } }]);
+    // }
+    // if (item.nombre === 'listaPrestamos') {
+    //   this.router.navigate([{ outlets: { componentes: 'lista-prestamos' } }]);
+    // }
   }
 
 

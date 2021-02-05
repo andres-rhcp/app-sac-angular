@@ -12,6 +12,6 @@ span {
 }
 
 .example-header-image {
-    background-image: url('../../../assets/img/book.png');
+    /* background-image: url('../../../assets/img/book.png'); */
     background-size: cover;
 }

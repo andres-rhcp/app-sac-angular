@@ -3,7 +3,7 @@ import { ConstantsService } from '../_services/constants.service';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { Bdd, Esquema, Tabla, Campo, Tablas } from '../_models/';
+import { Bdd, Esquema, Campo } from '../_models/';
 import { formatDate } from '@angular/common';
 
 @Injectable({
@@ -247,11 +247,11 @@ export class ServidorService {
         return respuesta;
       }));
   }
-  getPuntoInformacionAll(): Observable<any>{
+  getPuntoInformacionAll(): Observable<any> {
     return this.http.get<any[]>(`${this.constantsService.baseAppUrl}tramites/getTramitesAll`)
-    .pipe(map(respuesta => {
-      return respuesta;
-    }));
+      .pipe(map(respuesta => {
+        return respuesta;
+      }));
   }
 
   insertPrestamo(rec_mfn, pre_cedula, pre_nombres, pre_apellidos, pre_institucion,
@@ -284,23 +284,11 @@ export class ServidorService {
       }));
   }
 
-  insertRecurso(rec_planilla, rec_nombre_archivo, rec_ubicacion_fisica, rec_nivel_bibliografico, rec_nivel_registro,
-    rec_autor_personal, rec_titulo, rec_paginas, rec_editorial, rec_ciudad_editorial,
-    rec_pais_editorial, rec_edicion, rec_informacion_descriptiva, rec_fecha_publicacion,
-    rec_fecha_iso, rec_isbn, rec_impresion_documento, rec_idioma, rec_resumen, rec_numero_referencias,
-    rec_descriptores, rec_documentalista, rec_estado_obra, rec_numero_ejemplares, rec_precio_unitario,
-    rec_via_adquisicion, rec_fecha_registro, rec_fecha_modificacion, rec_observaciones, rec_estado,
-    rec_campo_1, rec_campo_2) {
-    rec_estado = "ACTIVO";
-    return this.http.post<any>(`${this.constantsService.baseAppUrl}biblioteca/insertRecurso`,
+  insertRecurso(product_sku, product_name, product_type, stock, date_update, user_update, observation) {
+    date_update = new Date()
+    return this.http.post<any>(`${this.constantsService.baseAppUrl}api/restmigra`,
       {
-        rec_planilla, rec_nombre_archivo, rec_ubicacion_fisica, rec_nivel_bibliografico, rec_nivel_registro,
-        rec_autor_personal, rec_titulo, rec_paginas, rec_editorial, rec_ciudad_editorial,
-        rec_pais_editorial, rec_edicion, rec_informacion_descriptiva, rec_fecha_publicacion,
-        rec_fecha_iso, rec_isbn, rec_impresion_documento, rec_idioma, rec_resumen, rec_numero_referencias,
-        rec_descriptores, rec_documentalista, rec_estado_obra, rec_numero_ejemplares, rec_precio_unitario,
-        rec_via_adquisicion, rec_fecha_registro, rec_fecha_modificacion, rec_observaciones, rec_estado,
-        rec_campo_1, rec_campo_2
+        product_sku, product_name, product_type, stock, date_update, user_update, observation
       })
       .pipe(map(respuesta => {
         return respuesta;
@@ -325,10 +313,10 @@ export class ServidorService {
 
   abrirFieldWeb(token) {
     return this.http.post<any[]>(`${this.constantsService.baseAppUrl}fielweb/obtenerUrl`, { token })
-    .pipe(map(respuesta => {
-      console.log(respuesta)
-      return respuesta;
-      
-    }));
+      .pipe(map(respuesta => {
+        console.log(respuesta)
+        return respuesta;
+
+      }));
   }
 }

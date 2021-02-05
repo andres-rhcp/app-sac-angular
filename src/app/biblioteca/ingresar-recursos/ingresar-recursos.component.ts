@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogComponent } from '../../_components/dialog/dialog.component';
 import { MatDialog } from '@angular/material';
-import { FileUploadService, LoadingService, ServidorService, SnackBarService, ConstantsService, SharingDataService, DialogService } from '../../_services';
+import {  LoadingService, ServidorService, SnackBarService } from '../../_services';
 import { first } from 'rxjs/operators';
 
 @Component({
@@ -61,12 +61,7 @@ export class IngresarRecursosComponent implements OnInit {
         if (result == 'OK') {
           this.loadingService.show();
           this.servidorService.insertRecurso(this.rec_planilla, this.rec_nnombre_archivo, this.rec_ubicacion_fisica, this.rec_nivel_bibliografico, this.rec_nivel_registro,
-            this.rec_autor_personal, this.rec_titulo, this.rec_paginas, this.rec_editorial, this.rec_ciudad_editorial,
-            this.rec_pais_editorial, this.rec_edicion, this.rec_informacion_descriptiva, this.rec_fecha_publicacion,
-            this.rec_fecha_iso, this.rec_isbn, this.rec_impresion_documento, this.rec_idioma, this.rec_resumen, this.rec_numero_referencias,
-            this.rec_descriptores, this.rec_documentalista, this.rec_estado_obra, this.rec_numero_ejemplares, this.rec_precio_unitario,
-            this.rec_via_adquisicion, this.rec_fecha_registro, this.rec_fecha_modificacion, this.rec_observaciones, this.rec_estado,
-            this.rec_campo_1, this.rec_campo_2)
+            this.rec_autor_personal, this.rec_titulo)
             .pipe(first())
             .subscribe(
               respuesta => {

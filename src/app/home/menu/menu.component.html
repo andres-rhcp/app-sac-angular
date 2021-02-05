@@ -1,24 +1,20 @@
 <mat-nav-list>
     <mat-accordion [multi]="true">
-        <mat-expansion-panel [(expanded)]="xpandStatus" *ngFor="let item of array_modulos; let i = index">
-            <mat-expansion-panel-header>
-                <mat-panel-title class="sub-title">
-                    {{ item.descripcion }}
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-            <a mat-list-item *ngFor="let atribucion of item.transacciones; let k = index" (click)="listaRelaciones(atribucion)">
-                <span *ngIf="atribucion.nombre==='consultaServicioAgua'"><mat-icon>bar_chart</mat-icon>&nbsp;</span>
-                <span *ngIf="atribucion.nombre==='pagoAguaPotable'"><mat-icon>credit_card</mat-icon>&nbsp;</span>
-                <span *ngIf="atribucion.nombre==='pagoImpuestoPredial'"><mat-icon>view_comfy</mat-icon>&nbsp;</span>
-                <span *ngIf="atribucion.nombre==='tra_cuadre'"><mat-icon>bar_chart</mat-icon>&nbsp;</span>
-                <span *ngIf="atribucion.nombre==='registroPagoTransferencias'"><mat-icon>assignment_turned_in</mat-icon>&nbsp;</span>
-                <span *ngIf="atribucion.nombre==='servidores'"><mat-icon>computer</mat-icon>&nbsp;</span>
-                <span *ngIf="atribucion.nombre==='servidores'"><mat-icon>computer</mat-icon>&nbsp;</span>
-                <span *ngIf="atribucion.nombre==='ingresoRecursos'"><mat-icon>create_new_folder</mat-icon>&nbsp;</span>
-                <span *ngIf="atribucion.nombre==='listaRecursos'"><mat-icon>library_books</mat-icon>&nbsp;</span>
-                <span *ngIf="atribucion.nombre==='registroPrestamos'"><mat-icon mdListIcon>book_online</mat-icon>&nbsp;</span>
-                <span *ngIf="atribucion.nombre==='listaPrestamos'"><mat-icon mdListIcon>calendar_today</mat-icon>&nbsp;</span> {{ atribucion.descripcion }}
+        <mat-expansion-panel [(expanded)]="xpandStatus">
+
+            <a mat-list-item (click)="listaRelaciones('products')">
+                <span><mat-icon>bar_chart</mat-icon>&nbsp;</span>Products Managment
+
             </a>
+            <a mat-list-item (click)="listaRelaciones('ship')">
+                <span><mat-icon>credit_card</mat-icon>&nbsp;</span>Ship product Managment
+
+            </a>
+
+            <a mat-list-item (click)="listaRelaciones('stock')">
+                <span><mat-icon>view_comfy</mat-icon>&nbsp;</span>Stck prodcuts Dashboad
+            </a>
+
 
         </mat-expansion-panel>
 

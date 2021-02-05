@@ -42,13 +42,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.loginForm.controls.usuario.value, this.loginForm.controls.password.value).pipe(first()).subscribe(
       respuesta => {
         this.loading.hide();
-
-        if (respuesta.mensaje == 'OK') {
-          this.router.navigate([this.returnUrl])
-        }
-        else {
-          this.snackbarService.openSnackBar(respuesta.mensaje, "info", "Info");
-        }
+        this.router.navigate([this.returnUrl])
       },
       error => {
         this.loading.hide();

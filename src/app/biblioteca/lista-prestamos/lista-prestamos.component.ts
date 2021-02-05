@@ -5,7 +5,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { InformacionRecursoComponent } from '../informacion-recurso/informacion-recurso.component';
 import { FichaRecursoComponent } from '../ficha-recurso/ficha-recurso.component';
 import { DialogComponent } from '../../_components/dialog/dialog.component';
 
