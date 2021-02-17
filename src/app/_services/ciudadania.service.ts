@@ -23,4 +23,9 @@ export class CiudadaniaService
   {
     return this.http.post(`http://localhost:3000/login-ciudadano`,{cedula, password});
   }
+
+  postLoginCiudadanoPaso2(codigo, identificacion)
+  {
+    return this.http.post(`http://localhost:3000/login-ciudadano/paso-dos`,{codigo, identificacion})
+  }
 }

@@ -25,6 +25,8 @@ import { ActivacionCuentaComponent } from './activacion-cuenta/activacion-cuenta
 import { PortalCiudadanoModule } from '../portal-ciudadano/portal-ciudadano.module';
 import { DialogCiudadanoComponent } from './dialog-ciudadano/dialog-ciudadano.component';
 import {MatRadioModule} from '@angular/material/radio';
+import {SimpleNotificationsModule} from 'angular2-notifications';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [LoginComponent, PagosComponent, ListaTablasComponent, MaterialFileUploadComponent, AsistenciaComponent, TramitesComponent, SeguimientoComponent, ArbolTramiteComponent, NodoTramiteComponent, InformacionRecursoComponent, IntranetComponent, LoginCiudadanoComponent, RegistroCiudadanoComponent, ActivacionCuentaComponent, DialogCiudadanoComponent],
@@ -37,7 +39,9 @@ import {MatRadioModule} from '@angular/material/radio';
     MatProgressBarModule,
     PortalCiudadanoModule,
     MatDialogModule,
-    MatRadioModule
+    MatRadioModule,
+    BrowserAnimationsModule,
+    SimpleNotificationsModule.forRoot()
   ], entryComponents: [
     ArbolTramiteComponent,
     NodoTramiteComponent,

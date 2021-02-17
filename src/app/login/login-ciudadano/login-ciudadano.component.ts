@@ -28,7 +28,23 @@ export class LoginCiudadanoComponent implements OnInit
     this.usuario = (localStorage.getItem('usuario'));
   }
 
-  ngOnInit() {
+  ngOnInit() 
+  {}
+
+  loginCiudadano_paso1()
+  {
+    this.password = btoa(this.password);
+    this.ciudadanoService.postLoginCiudadano(this.cedula, this.password).subscribe(
+      data => {
+        this.datos = data
+        if(this.datos.mensaje === 'OK-paso1')
+        {
+          this.abrirDialog2("OK-PASO2", this.cedula)
+        }else
+        {
+          this.abrirDialog("NO-LOGIN")
+        }
+      })
   }
 
   LoginCiudadano()
@@ -44,6 +60,7 @@ export class LoginCiudadanoComponent implements OnInit
           localStorage.setItem('cedula', this.datos.usuario_cedula);
           localStorage.setItem('nombre', this.datos.usuario_nombres);
           localStorage.setItem('apellidos', this.datos.usuario_appeliidos);
+          localStorage.setItem('carpeta',this.datos.ruta_carpeta)
           this.currentUserSubject.next(this.datos);
           //reenvio al landing page
           this.router.navigate(['ciudadano/landing-page'])
@@ -67,6 +84,17 @@ export class LoginCiudadanoComponent implements OnInit
       data: { respuesta: respuesta},
       width: '500PX',
       height:'590px',
+      panelClass: 'my-class'
+    });
+    dialogRef.afterClosed().subscribe(result => {});
+  }
+
+  abrirDialog2(respuesta, cedula)
+  {
+    const dialogRef = this.dialog.open(DialogCiudadanoComponent, {
+      data:{respuesta: respuesta, ciu_cedula: cedula},
+      width: '500px',
+      height: '590px',
       panelClass: 'my-class'
     });
     dialogRef.afterClosed().subscribe(result => {});

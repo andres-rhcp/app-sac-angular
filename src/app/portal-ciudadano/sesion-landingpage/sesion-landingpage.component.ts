@@ -27,5 +27,4 @@ export class SesionLandingpageComponent implements OnInit
     localStorage.clear()
     this.router.navigate(['login-ciudadano'])
   }
-
 }
