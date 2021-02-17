@@ -5,36 +5,59 @@
             style=" top: 30px; left: 100px; margin-left: 20px;" />
     </div>
     <div class="mat-card" style="text-align: center;">
-        <h1>Requisitos de Trámites</h1>
-        <div class="form-group">
-            <input  matInput (keyup)="applyFilter($event)" placeholder="BUSCAR" >
+        <p>
+            <mat-toolbar color="primary" *ngIf=(!currentUser) style="text-align: center;">
+                <button mat-icon-button [matMenuTriggerFor]="menu" (click)="limpiarListaDepartamentos()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <ng-template matMenuContent let-aliasMenuItems="menuItems">
+                        <button mat-menu-item *ngFor="let items of departamentos" (click)="BusquedaPorDepartamento(items)">
+                            {{items}}
+                          </button>
+                    </ng-template>
+                </mat-menu>
+                  <span>Trámites</span>
+                  <span class="example-spacer"></span>
+            </mat-toolbar>
+        </p>
+        <div>
+            <input  type="text" class="form-control" [(ngModel)]="buscar" matInput (keyup)="busqueda($event)" placeholder="Buscar..." >
         </div>
+        <div>
         <table style="text-align: center;">
             <tr>
                 <li *ngFor="let item of lista; let i = index">
             <tr *ngIf="i%3 == 0 ">
                 <td>
-                    <mat-card class="example-card">
-                        <button mat-stroked-button color="primary" style="width: 250px; white-space: normal; height: 100px"
+                    <mat-card class="example-card" *ngIf="i != lista.length">
+                        <a type="button" href="{{item.enlace_gob}}" style="width: 230px; white-space: normal;  height: 75px; text-decoration:none"
+                         target="_blank">{{item.nombre_tramite}}</a>
+                        <!--<button mat-stroked-button color="primary" style="width: 250px; white-space: normal; height: 100px"
                             (click)="openRequisitos(item)">{{item.nombre_tramite}}
-                        </button>
+                        </button>-->
                     </mat-card>
                 </td>
                 <td>
-                    <mat-card class="example-card">
-                        <button mat-stroked-button color="primary" style="width: 250px; white-space: normal;  height: 100px"
-                            (click)="openRequisitos(item)">{{lista[i+1].nombre_tramite}}
-                        </button>
+                    <mat-card class="example-card" *ngIf="i+1 != lista.length">
+                        <a type="button" href="{{item.enlace_gob}}" style="width: 230px; white-space: normal;  height: 75px; text-decoration:none"
+                         target="_blank">{{item.nombre_tramite}}</a>
+                        <!--<button mat-stroked-button color="primary" style="width: 250px; white-space: normal;  height: 100px"
+                            (click)="openRequisitos(lista[i+1])">{{lista[i+1].nombre_tramite}}
+                        </button>-->
                     </mat-card>
                 </td>
                 <td>
-                    <mat-card class="example-card">
-                        <button mat-stroked-button color="primary" style="width: 250px; white-space: normal;  height: 100px"
-                            (click)="openRequisitos(item)">{{lista[i+2].nombre_tramite}}
-                        </button>
+                    <mat-card class="example-card" *ngIf="i+2 != lista.length">
+                        <a type="button" href="{{item.enlace_gob}}" style="width: 230px; white-space: normal;  height: 75px; text-decoration:none"
+                         target="_blank">{{item.nombre_tramite}}</a>
+                        <!--<button mat-stroked-button color="primary" style="width: 250px; white-space: normal;  height: 100px"
+                            (click)="openRequisitos(lista[i+2])">{{lista[i+2].nombre_tramite}}
+                        </button>-->
                     </mat-card>
                 </td>
             </tr>
             </li>
         </table>
     </div>
+</div>

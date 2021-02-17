@@ -261,6 +261,18 @@ export class ServidorService {
     }));
   }
 
+  getTramitesAllDepartamentos(){
+    return this.http.get('http://localhost:3000/tramites/getTramitesAll')
+  }
+
+  getrequisitosByTramiteGob(id){
+    return this.http.get(`/api/v1/tramites/${id}/?institution=332`)
+  }
+
+  getRef_Docum(id){
+    return this.http.post('http://localhost:3000/tramites/getRef_DocumByTramiteId',{id})
+  }
+
   insertPrestamo(rec_mfn, pre_cedula, pre_nombres, pre_apellidos, pre_institucion,
     pre_nivel, pre_fecha_prestamo, pre_fecha_entrega, pre_observaciones, pre_estado, pre_campo_1,
     pre_campo_2, pre_campo_3, pre_campo_4) {

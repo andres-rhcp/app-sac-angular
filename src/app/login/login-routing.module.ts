@@ -8,6 +8,7 @@ import { TramitesComponent } from './tramites/tramites.component';
 import { SeguimientoComponent } from './seguimiento/seguimiento.component';
 import { IntranetComponent } from './intranet/intranet.component';
 import { PuntoInformacionComponent } from './punto-informacion/punto-informacion.component';
+import { RequisitosComponent } from './requisitos/requisitos.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'tramites', component:TramitesComponent },
   { path: 'seguimiento', component:SeguimientoComponent },
   { path: 'intranet', component:IntranetComponent },
-  { path: 'punto-informacion', component:PuntoInformacionComponent}
+  { path: 'punto-informacion', component:PuntoInformacionComponent},
+  { path: 'requisitos', component:RequisitosComponent}
 ]; 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -6,3 +6,4 @@ export * from './snack-bar.service';
 export * from './servidor.service';
 export * from './dialog.service';
 export * from './file-upload.service';
+export * from './print.service';

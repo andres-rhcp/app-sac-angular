@@ -1,0 +1,7 @@
+{
+    "/api/v1/tramites/*":{
+        "target": "https://www.gob.ec",
+        "secure": false,
+        "changeOrigin": true
+    }
+}

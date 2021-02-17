@@ -24,6 +24,7 @@
     "@angular/router": "~8.2.14",
     "@kushki/js": "^1.17.3",
     "@kushki/ng-suka": "^0.8.3",
+    "@techiediaries/ngx-qrcode": "^9.1.0",
     "@types/cytoscape": "^3.14.8",
     "@types/jquery": "^3.5.4",
     "angular": "^1.7.9",

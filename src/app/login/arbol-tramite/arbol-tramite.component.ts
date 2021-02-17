@@ -148,7 +148,7 @@ export class ArbolTramiteComponent {
       );
       this.cy.resize();
 
-      var collection = this.cy.collection();
+      var collection = this.cy.collection(); 
 
     }, error => {
       this.isImageLoading = true;

@@ -13,6 +13,7 @@ import { LoadingComponent } from './_components/loading/loading.component';
 import { SnackBarComponent } from './_components/snack-bar/snack-bar.component';
 import { MenuComponent } from './home/menu/menu.component';
 import { ErrorInterceptor, JwtInterceptor } from './_helpers';
+//import {NgxQRCodeModule} from '@techiediaries/ngx-qrcode'
 //import { DialogComponent } from './_components/dialog/dialog.component';
 // import { DialogOverviewExampleDialog } from './home/lista-tablas/lista-tablas.component';
 // import { ConfirmDialogComponent } from './_components/dialog/dialog.component';
@@ -27,6 +28,7 @@ import { FileComponent } from './home/file/file.component';
 // import { MaterialFileUploadComponent } from './_components/material-file-upload/material-file-upload.component';
 // const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 import { StorageServiceModule } from 'angular-webstorage-service';
+import { ComprasPublicasModule } from './compras-publicas/compras-publicas.module';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { StorageServiceModule } from 'angular-webstorage-service';
     // IoModule.forRoot(config),
     BrowserModule,
     StorageServiceModule,
-    InicioModule
+    InicioModule,
+    ComprasPublicasModule
+    //NgxQRCodeModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

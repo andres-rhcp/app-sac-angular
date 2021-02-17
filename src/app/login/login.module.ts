@@ -19,7 +19,7 @@ import { ArbolTramiteComponent } from './arbol-tramite/arbol-tramite.component';
 import { InformacionRecursoComponent } from '../biblioteca/informacion-recurso/informacion-recurso.component';
 import { NodoTramiteComponent } from './nodo-tramite/nodo-tramite.component';
 import { IntranetComponent } from './intranet/intranet.component';
-
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [LoginComponent, PagosComponent, ListaTablasComponent, MaterialFileUploadComponent, AsistenciaComponent, TramitesComponent, SeguimientoComponent, ArbolTramiteComponent, NodoTramiteComponent, InformacionRecursoComponent, IntranetComponent],
@@ -29,7 +29,8 @@ import { IntranetComponent } from './intranet/intranet.component';
     SharedModule,
     ReactiveFormsModule,
     FormsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatMenuModule
   ], entryComponents: [
     ArbolTramiteComponent,
     NodoTramiteComponent,

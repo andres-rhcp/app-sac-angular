@@ -1,0 +1,26 @@
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.example-spacer{
+    flex: 1 1 auto;
+}
+
+.sesion{
+    width: 300px;
+    float: left;
+    margin: 10%;
+    margin-left: 20%;
+    border: 5%;
+}
+
+.icon {
+    font-size: 60px;
+}
+
+.example-card {
+    max-width: 100px;
+}
