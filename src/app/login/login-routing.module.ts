@@ -9,6 +9,10 @@ import { SeguimientoComponent } from './seguimiento/seguimiento.component';
 import { IntranetComponent } from './intranet/intranet.component';
 import { PuntoInformacionComponent } from './punto-informacion/punto-informacion.component';
 import { RequisitosComponent } from './requisitos/requisitos.component';
+import { LoginCiudadanoComponent } from '../login/login-ciudadano/login-ciudadano.component';
+import { RegistroCiudadanoComponent } from '../login/registro-ciudadano/registro-ciudadano.component';
+import { ActivacionCuentaComponent } from '../login/activacion-cuenta/activacion-cuenta.component'
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -21,7 +25,11 @@ const routes: Routes = [
   { path: 'seguimiento', component:SeguimientoComponent },
   { path: 'intranet', component:IntranetComponent },
   { path: 'punto-informacion', component:PuntoInformacionComponent},
-  { path: 'requisitos', component:RequisitosComponent}
+  { path: 'requisitos', component:RequisitosComponent},
+  { path: 'login-ciudadano', component: LoginCiudadanoComponent },
+  { path: 'registro-ciudadano', component: RegistroCiudadanoComponent },
+  { path: 'activar-cuenta/:cedula', component: ActivacionCuentaComponent }
+
 ]; 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

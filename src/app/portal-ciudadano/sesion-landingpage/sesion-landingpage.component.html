@@ -1,0 +1,23 @@
+<link rel="icon" type="image/x-icon" href="assets/img/sol.ico">
+
+<div class="parent">
+    <div style=" left: 20px; top: 0; text-align: left;">
+        <img width="400px" src="assets/img/logo-login.png" id="login"
+            style="top: 30px; left: 100px; margin-right: 20px;" />
+    </div>
+</div>
+
+<h2 style="text-align: center;">Portal ciudadano</h2>
+
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span class="example-spacer"></span>
+        <p>{{usuario}} &nbsp; </p> 
+        <button mat-mini-fab [matMenuTriggerFor]="menu">
+            <mat-icon>person</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="cerrarsesion()">Cerrar Sesión</button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,81 @@
+<div *ngIf="dato == 'OK'" style="text-align: center;">
+    <img src="assets/img/ok-check-once.gif" width="300px" style="animation: like-gif steps(1) 1s  both;">
+    <BR>
+    <h3>¡CUENTA ACTIVADA!</h3>
+    <button type="submit" mat-raised-button color="primary" (click)="Dirigir_a_LoginCiudadano()">CONTINUAR</button>
+</div>
+
+<div *ngIf="dato == 'NO'" style="text-align: center;">
+    <img src="assets/img/sol.png" width="200px">
+    <BR>
+    <h3>¡CUENTA YA FUE ACTIVADA!</h3>
+    <button type="submit" mat-raised-button color="primary" (click)="onNoClick()">ACEPTAR</button>
+</div>
+
+<div *ngIf="dato == 'OK-nuevo-usuario'" style="text-align: center;">
+    <img src="assets/img/ok-check-once.gif" width="200px">
+    <BR>
+    <h3>¡CUENTA DE USUARIO CREADA!</h3>
+    <BR>
+    <h3>¡LE HEMOS ENVIADO UN MENSAJE A SU CORREO ELECTRONICO PARA QUE ACTIVE SU CUENTA!</h3>
+    <button type="submit" mat-raised-button color="primary" (click)="Dirigir_a_LoginCiudadano()">ACEPTAR</button>
+</div>
+
+<div *ngIf="dato == 'NO-CEDULA'" style="text-align: center;">
+    <img src="assets/img/sol.png" width="200px">
+    <BR>
+    <h3>¡CEDULA INCORRECTA!</h3>
+    <button type="submit" mat-raised-button color="primary" (click)="onNoClick()">ACEPTAR</button>
+</div>
+
+<div *ngIf="dato == 'SIN-TIPO'" style="text-align: center;">
+    <img src="assets/img/sol.png" width="200px">
+    <BR>
+    <h3>¡SELECCIONE EL TIPO DE IDENTIFICACION CON EL QUE SE REGISTRARÁ!</h3>
+    <button type="submit" mat-raised-button color="primary" (click)="onNoClick()">ACEPTAR</button>
+</div>
+
+<div *ngIf="dato == 'NO-RUC'" style="text-align: center;">
+    <img src="assets/img/sol.png" width="200px">
+    <BR>
+    <h3>¡RUC INGRESADO INCORRECTO!</h3>
+    <button type="submit" mat-raised-button color="primary" (click)="onNoClick()">ACEPTAR</button>
+</div>
+
+<div *ngIf="dato == 'NO-CREDENCIALES'" style="text-align: center;">
+    <img src="assets/img/sol.png" width="200px">
+    <BR>
+    <h3>¡CREDENCIALES INCORRECTAS, PORFAVOR COMPLETE LOS CAMPOS REQUERIDOS!</h3>
+    <button type="submit" mat-raised-button color="primary" (click)="onNoClick()">ACEPTAR</button>
+</div>
+
+<div *ngIf="dato == 'NO-LOGIN'" style="text-align: center;">
+    <img src="assets/img/sol.png" width="200px">
+    <BR>
+    <h3>CREDENCIALES INCORRECTAS</h3>
+    <button type="submit" mat-raised-button color="primary" (click)="onNoClick()">ACEPTAR</button>
+</div>
+
+
+<div *ngIf="dato == 'OK-PASO2'" style="text-align: center;">
+    <mat-card>
+        <img src="assets/img/sol.png" width="200px">
+        <BR>
+        <h3>Ingrese el codigo de verificacion que hemos enviado a su correo electronico</h3>
+        <mat-card-content>
+            <form>
+                <p>
+                    <mat-form-field>
+                        <input [type]=" 'text' " placeholder="CODIGO" matInput [(ngModel)]="codigo"
+                            [ngModelOptions]="{standalone: true}" required />
+                    </mat-form-field>
+                </p>
+                <div class="button">
+                    <button type="submit" mat-raised-button color="primary"
+                        (click)="LoginCiudadano_paso2()">Ingresar</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
+<simple-notifications></simple-notifications>

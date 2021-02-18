@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatProgressBarModule, MatProgressSpinnerModule, } from "@angular/material";
+import { MatDialogModule, MatProgressBarModule, MatProgressSpinnerModule, } from "@angular/material";
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login/login.component';
 import { SharedModule } from '../shared/shared.module';
@@ -20,9 +20,17 @@ import { InformacionRecursoComponent } from '../biblioteca/informacion-recurso/i
 import { NodoTramiteComponent } from './nodo-tramite/nodo-tramite.component';
 import { IntranetComponent } from './intranet/intranet.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { LoginCiudadanoComponent } from './login-ciudadano/login-ciudadano.component';
+import { RegistroCiudadanoComponent } from './registro-ciudadano/registro-ciudadano.component' 
+import { ActivacionCuentaComponent } from './activacion-cuenta/activacion-cuenta.component'
+import { PortalCiudadanoModule } from '../portal-ciudadano/portal-ciudadano.module';
+import { DialogCiudadanoComponent } from './dialog-ciudadano/dialog-ciudadano.component';
+import {MatRadioModule} from '@angular/material/radio';
+import {SimpleNotificationsModule} from 'angular2-notifications';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [LoginComponent, PagosComponent, ListaTablasComponent, MaterialFileUploadComponent, AsistenciaComponent, TramitesComponent, SeguimientoComponent, ArbolTramiteComponent, NodoTramiteComponent, InformacionRecursoComponent, IntranetComponent],
+  declarations: [LoginComponent, PagosComponent, ListaTablasComponent, MaterialFileUploadComponent, AsistenciaComponent, TramitesComponent, SeguimientoComponent, ArbolTramiteComponent, NodoTramiteComponent, InformacionRecursoComponent, IntranetComponent, LoginCiudadanoComponent, RegistroCiudadanoComponent, ActivacionCuentaComponent, DialogCiudadanoComponent],
   imports: [
     CommonModule,
     LoginRoutingModule,
@@ -30,11 +38,17 @@ import { MatMenuModule } from '@angular/material/menu';
     ReactiveFormsModule,
     FormsModule,
     MatProgressBarModule,
-    MatMenuModule
+    MatMenuModule,
+    PortalCiudadanoModule,
+    MatDialogModule,
+    MatRadioModule,
+    BrowserAnimationsModule,
+    SimpleNotificationsModule.forRoot()
   ], entryComponents: [
     ArbolTramiteComponent,
     NodoTramiteComponent,
-    InformacionRecursoComponent
+    InformacionRecursoComponent,
+    DialogCiudadanoComponent
   ]
 })
 export class LoginModule { }
