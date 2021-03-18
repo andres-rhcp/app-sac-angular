@@ -41,7 +41,7 @@
                 <td>
                     <mat-card class="example-card" *ngIf="i+1 != lista.length">
                         <a type="button" href="{{item.enlace_gob}}" style="width: 230px; white-space: normal;  height: 75px; text-decoration:none"
-                         target="_blank">{{item.nombre_tramite}}</a>
+                         target="_blank">{{lista[i+1].nombre_tramite}}</a>
                         <!--<button mat-stroked-button color="primary" style="width: 250px; white-space: normal;  height: 100px"
                             (click)="openRequisitos(lista[i+1])">{{lista[i+1].nombre_tramite}}
                         </button>-->
@@ -50,7 +50,7 @@
                 <td>
                     <mat-card class="example-card" *ngIf="i+2 != lista.length">
                         <a type="button" href="{{item.enlace_gob}}" style="width: 230px; white-space: normal;  height: 75px; text-decoration:none"
-                         target="_blank">{{item.nombre_tramite}}</a>
+                         target="_blank">{{lista[i+2].nombre_tramite}}</a>
                         <!--<button mat-stroked-button color="primary" style="width: 250px; white-space: normal;  height: 100px"
                             (click)="openRequisitos(lista[i+2])">{{lista[i+2].nombre_tramite}}
                         </button>-->
@@ -60,4 +60,9 @@
             </li>
         </table>
     </div>
+</div>
+
+<div>
+    <button mat-fab color="primary" id="add-button" matTooltip="Volver al inicio" routerLink="../tramites">
+        <i class="material-icons" >home</i></button>
 </div>

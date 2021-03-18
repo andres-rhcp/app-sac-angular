@@ -98,3 +98,14 @@ li {
     opacity: 0;
 }
 
+.example-card{
+    width: 250px;
+    height: 50px;
+}
+
+#add-button {
+    right: 20px;
+    bottom: 10px;
+    left: auto;
+    position: fixed;
+}

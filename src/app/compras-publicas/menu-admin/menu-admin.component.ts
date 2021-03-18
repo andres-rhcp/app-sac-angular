@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-sesion-cp',
-  templateUrl: './sesion-cp.component.html',
-  styleUrls: ['./sesion-cp.component.css']
+  selector: 'app-menu-admin',
+  templateUrl: './menu-admin.component.html',
+  styleUrls: ['./menu-admin.component.css']
 })
-export class SesionCpComponent implements OnInit {
+export class MenuAdminComponent implements OnInit {
 
   nombres: string
   apellidos: string
@@ -15,7 +15,7 @@ export class SesionCpComponent implements OnInit {
   constructor(private router: Router) {
     this.nombres = (localStorage.getItem ('nombres'));
     this.apellidos = (localStorage.getItem('apellidos'));
-    this.usuario = this.nombres + " " +this.apellidos;
+    this.usuario = this.nombres + " "+this.apellidos;
    }
 
   ngOnInit() {

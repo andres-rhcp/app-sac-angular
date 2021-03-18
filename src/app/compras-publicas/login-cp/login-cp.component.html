@@ -5,19 +5,21 @@
         <form>
             <p>
                 <mat-form-field>
-                    <input type="text" matInput placeholder="Cedula">
+                    <input type="text" matInput placeholder="Cedula" [(ngModel)]="cedula" [ngModelOptions]="{standalone: true}">
                 </mat-form-field>
             </p>
             <p>
                 <mat-form-field>
-                    <input type="text" matInput placeholder="Password">
+                    <input [type]=" 'password' " placeholder="Password" matInput [(ngModel)]="password" [ngModelOptions]="{standalone: true}" required>
                 </mat-form-field>
             </p>
             <p>
-                <mat-checkbox >Administrador</mat-checkbox>               
+                <mat-radio-group [(ngModel)]="administracion" [ngModelOptions]="{standalone: true}">
+                    <mat-radio-button class="example-margin" value="admin" >Administrador</mat-radio-button>
+                </mat-radio-group>               
             </p>
         <div class="button">
-            <button type="submit" mat-raised-button color="primary">Ingresar</button>
+            <button type="submit" mat-raised-button color="primary" (click)="loginComprasPublicas()">Ingresar</button>
         </div>
     </form>
     </mat-card-content>

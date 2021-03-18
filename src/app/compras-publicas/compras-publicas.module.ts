@@ -9,10 +9,14 @@ MatMenuModule} from '@angular/material';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import { SesionCpComponent } from './sesion-cp/sesion-cp.component';
+import { FormsModule } from '@angular/forms';
+import { MenuAdminComponent } from './menu-admin/menu-admin.component';
+import { PacComponent } from './pac/pac.component';
+import { ListaCpComponent } from './lista-cp/lista-cp.component';
 
 
 @NgModule({
-  declarations: [LoginCpComponent, SesionCpComponent],
+  declarations: [LoginCpComponent, SesionCpComponent, MenuAdminComponent, PacComponent, ListaCpComponent],
   imports: [
     CommonModule,
     ComprasPublicasRoutingModule, 
@@ -23,7 +27,8 @@ import { SesionCpComponent } from './sesion-cp/sesion-cp.component';
     MatToolbarModule,
     MatIconModule,
     MatMenuModule, 
-    MatCheckboxModule
+    MatCheckboxModule,
+    FormsModule
   ]
 })
 export class ComprasPublicasModule { }
